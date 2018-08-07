@@ -84,4 +84,4 @@ On development, gulp will run its version of `nodemon` to spin up a web server. 
 
 Files are not minified in development and the server global router will serve `bundle.js`. All else, gulp will run the minifier and the server will serve `bundle.min.js`. 
 
-Sourcemaps are included in development and staging for readable debugging, but excluded in production.
+Sourcemaps are included in development and staging for readable debugging, but excluded in production..
