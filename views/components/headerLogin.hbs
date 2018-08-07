@@ -1,0 +1,5 @@
+{{#if user}}
+<a class="header__desktopNavLink dn dib-l mr3 pv3 f6 black link pointer dim{{#ifCond route '===' 'account'}} header__desktopNavLink--active{{/ifCond}}" href="/account">{{user.firstname}}</a>
+{{else}}
+<span id="login__toggle--desktop" class="header__desktopNavLink navigation__subNavToggle dn dib-l mr3 pv3 f6 link pointer dim" data-subnav-target="login">Log In</span>
+{{/if}}

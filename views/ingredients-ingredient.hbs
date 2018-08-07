@@ -1,0 +1,92 @@
+<section class="ingredient__heading relative w-100 mv3 mv5-l ph3">
+  <a href="/ingredients" class="absolute bn ba-l b--navy left-1-l top-1 pv3 ph2 ph4-l navy fw5 link">
+    <img class="dib v-mid mr2" src="/images/svg/navy-arrow-left.svg"> 
+    <span class="dn di-l f6 fw6">All Ingredients</span>
+  </a>
+  <div class="ph4 mt4 mt0-l pb4 pb0-l tc">
+    <h1 class="mt0 mb2 super-clarendon f3 normal">{{ingredient.fields.name}}</h1>
+    <span class="mb2 navy f6 fw6">{{ingredient.fields.scientificName}}</span>
+  </div>
+  {{#if ingredient.fields.image.fields.file.url}}
+    <div class="ingredient__image w-100 bg-center cover db dn-l" style="background-image: url('{{ingredient.fields.image.fields.file.url}}?q=80&w=1200')"></div>
+  {{/if}}
+</section>
+<section class="w-100 ph3 flex flex-column flex-row-l">
+  <div class="ingredient__image w-25 bg-center cover dn db-l" style="background-image: url('{{ingredient.fields.image.fields.file.url}}?q=80&w=1200')"></div>
+  <div class="ingredient__body w-100 w-50-l">
+    <div class="w-100 f5 f4-l lh-copy br-0 br-l b--light-gray ph5-l">
+      {{#if ingredient.fields.details}}
+        <div class="headingToggle__wrapper w-100">
+          <h2 class="headingToggle__heading mv0">The ABC’s of Indie Lee Beauty</h2>
+          <h4 class="headingToggle__heading mt0">(Agriculture, Botany and Composition)</h4> 
+        </div>
+        <div class="ingredient__markup">
+          {{{marked ingredient.fields.details}}}
+        </div>
+      {{/if}}
+      {{#if ingredient.fields.uses}}
+        <div class="headingToggle__wrapper w-100">
+          <h2 class="headingToggle__heading">Historical Uses</h2>
+        </div>
+        <div class="ingredient__markup">
+          {{{marked ingredient.fields.uses}}}
+        </div>
+      {{/if}}
+      {{#if ingredient.fields.stories}}
+        <div class="headingToggle__wrapper w-100">
+          <h2 class="headingToggle__heading">Stories &amp; Legends</h2>
+        </div>
+        <div class="ingredient__markup">
+          {{{marked ingredient.fields.stories}}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="ingredient__details dn db-l w-100 h-auto w-25-l ph3 ph5-l">
+    {{#if next}}
+      <a href="/ingredients/{{next.fields.slug}}" class="black link">
+      <span class="dib mt4 mt0-l mb3 f6 fw6 navy">Next Ingredient</span>
+        {{#if next.fields.image.fields.file.url}} 
+          <div class="w-100 aspect-ratio--7x5 bg-center cover" style="background-image: url('{{next.fields.image.fields.file.url}}?q=80&w=480')"></div> 
+        {{/if}}
+        <span class="dib w-100 fw1 mv3">{{next.fields.name}}</span>
+      </a>
+    {{else if prev}}
+      <a href="/ingredients/{{prev.fields.slug}}" class="black link">
+      <span class="dib mt4 mt0-l mb3 f6 fw6 navy">Prev Ingredient</span>
+        {{#if prev.fields.image.fields.file.url}}
+          <div class="w-100 aspect-ratio--7x5 bg-center cover" style="background-image: url('{{prev.fields.image.fields.file.url}}?q=80&w=480')"></div>
+        {{/if}}
+        <span class="dib w-100 fw1 mv3">{{prev.fields.name}}</span>
+      </a>
+    {{/if}}
+  </div>
+</section>
+<section>
+ <div class="w-100 center pl4 pl5-l pv4 relative">
+    <div id="ingredientProducts" class="ingredientProducts z-2 relative" data-component="ingredientProductsSlider">
+      {{> ingredientProductsSlider}}
+    </div>
+  </div>
+</section>
+<div class="ingredient__details db dn-l w-80 h-auto w-50-m ph3 pb5">
+  {{#if next}}
+    <a href="/ingredients/{{next.fields.slug}}" class="black link">
+    <span class="dib mt4 mt0-l mb3 f6 fw6 navy">Next Ingredient</span>
+      {{#if next.fields.image.fields.file.url}}
+        <div class="w-100 aspect-ratio--7x5 bg-center cover" style="background-image: url('{{next.fields.image.fields.file.url}}?q=80&w=480')"></div>
+      {{/if}}
+      <span class="dib w-100 fw1 mv3">{{next.fields.name}}</span>
+    </a>
+  {{else if prev}}
+    <a href="/ingredients/{{prev.fields.slug}}" class="black link">
+    <span class="dib mt4 mt0-l mb3 f6 fw6 navy">Prev Ingredient</span>
+      {{#if prev.fields.image.fields.file.url}}
+        <div class="w-100 aspect-ratio--7x5 bg-center cover" style="background-image: url('{{prev.fields.image.fields.file.url}}?q=80&w=480')"></div>
+      {{/if}}
+      <span class="dib w-100 fw1 mv3">{{prev.fields.name}}</span>
+    </a>
+  {{/if}}
+</div>
+
+

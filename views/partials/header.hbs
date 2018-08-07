@@ -1,0 +1,119 @@
+<header id="header" class="header relative w-100 pa3 ph4-l flex items-center" data-state="nav-closed">
+  <div class="fl w-50 w-40-l flex items-center justify-start">
+      <a class="header__logo link black f3 db dn-l z-4" href="/">
+        {{> logo}}
+      </a>
+      <span class="header__desktopNavLink navigation__subNavToggle dn dib-l mr3 pv3 link black pointer z-4{{#ifCond route '===' 'shop'}} header__desktopNavLink--active{{/ifCond}}" data-subnav-target="shop">Shop</span>
+      <span class="header__desktopNavLink navigation__subNavToggle dn dib-l mh3 pv3 link black pointer z-4{{#ifCond route '===' 'educate'}} header__desktopNavLink--active{{/ifCond}}" data-subnav-target="educate">Educate</span>
+      <a class="header__desktopNavLink dn dib-l mh3 pv3 link black z-4{{#ifCond route '===' 'empower'}} header__desktopNavLink--active{{/ifCond}}" href="/empower">Empower</a>
+      <span class="header__desktopNavLink navigation__subNavToggle dn dib-l mh3 pv3 link black pointer z-4{{#ifCond route '===' 'connect'}} header__desktopNavLink--active{{/ifCond}}" data-subnav-target="connect">Connect</span>
+  </div>
+  <div class="fl w-20-l dn flex-l items-center justify-center">
+    <a id="header__lgLogo" class="header__logo link black f3 dn db-l z-3" href="/">
+      {{> logo}}
+    </a>
+  </div>
+  <div class="fl w-50 w-40-l flex items-center justify-end">
+    <div id="headerLogin" class="headerLogin z-4" data-component="headerLogin" data-turbolinks-permanent>
+      {{> headerLogin}}
+    </div>
+    <span class="header__desktopNavLink navigation__subNavToggle dn dib-l f6 mh3 pv3 pointer z-4" data-subnav-target="search">Search</span>
+    <span id="header__cartDrawerToggle" class="header__cartDrawerToggle dib ml3-l bg-black white br-100 z-4 tc pointer dim" data-turbolinks-permanent></span>
+    <!-- navigation -->
+    <div class="header__navToggleWrap db dn-l ml3">
+      <div id="header__navToggle" class="header__navToggle z-4 pointer">
+        <span class="header__navToggleBar db bg-black"></span>
+        <span class="header__navToggleBar db bg-black"></span>
+        <span class="header__navToggleBar db bg-black"></span>
+      </div>
+    </div>
+    <nav id="navigation" class="navigation db fixed top-0 bottom-0 right-0 pv5 vh-100 z-3 white bg-navy">
+      <div class="navigation__inner db dn-l h-100 pl3 pb6 overflow-X-hidden overflow-y-scroll bg-navy">
+        <div class="navigation__mainLinks mv4">
+          <span class="navigation__subNavToggle db pv2 link white f3 pointer" data-subnav-target="shop">Shop</span>
+          <span class="navigation__subNavToggle db pv2 link white f3 pointer" data-subnav-target="educate">Educate</span>
+          <a class="db pv2 link white f3" href="/empower">Empower</a>
+          <span class="navigation__subNavToggle db pv2 link white f3 pointer" data-subnav-target="connect">Connect</span>
+          <span class="navigation__subNavToggle db pv2 link white f3 pointer" data-subnav-target="search">Search</span>
+        </div>
+
+        <div id="menuLogin" class="menuLogin" data-component="menuLogin" data-turbolinks-permanent>
+          {{> menuLogin}}
+        </div>
+      </div>
+    </nav>
+    <div id="navigation__shopNav" class="navigation__subNav fixed top-0 bottom-0 pl3 pl4-l pt4 pb5 z-3 bg-navy">
+      <span class="navigation__subNavClose dn db-l absolute top-2 right-2 w1 h1 bg-center contain dim pointer"></span>
+      <div class="navigation__subNavInner h-100 mt4 pt4 pb6 overflow-y-scroll">
+        <a class="db link white f3" href="/shop/ritual">See All</a>
+        <span class="db white ttu f6 pt4 pb3">Ritual</span>
+        <div class="navigation__subNavCategoryLinks">
+          <a class="db pv2 link white f3" href="/shop/ritual/prepare">Prepare <span class="f5">({{appData.segments.ritual.[prepare].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/ritual/perfect">Perfect <span class="f5">({{appData.segments.ritual.[perfect].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/ritual/prevent">Prevent <span class="f5">({{appData.segments.ritual.[prevent].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/ritual/protect">Protect <span class="f5">({{appData.segments.ritual.[protect].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/ritual/boost">Boost <span class="f5">({{appData.segments.ritual.[boost].products.length}})</span></a>
+        </div>
+        <span class="db white ttu f6 pt4 pb3">Focus</span>
+        <div class="navigation__subNavCategoryLinks">
+          <a class="db pv2 link white f3" href="/shop/focus/face-for-all">Face For All <span class="f5">({{appData.segments.focus.[face for all].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/focus/clarity">Clarity <span class="f5">({{appData.segments.focus.[clarity].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/focus/sensitive">Sensitive <span class="f5">({{appData.segments.focus.[sensitive].products.length}})</span></a>
+          <a class="db pv2 link white f3" href="/shop/focus/body-basics">Body Basics <span class="f5">({{appData.segments.focus.[body basics].products.length}})</span></a>
+        </div>
+      </div>
+    </div>
+    <div id="navigation__educateNav" class="navigation__subNav fixed top-0 bottom-0 pl3 pl4-l pt4 pb5 z-3 bg-navy">
+      <span class="navigation__subNavClose dn db-l absolute top-2 right-2 w1 h1 bg-center contain dim pointer"></span>
+      <div class="navigation__subNavInner h-100 mt4 pt4 pb6 overflow-y-scroll">
+        {{!-- <div class="pv4">
+          <span class="db light-blue tracked ttu b f6 pb3">Read</span>
+          <div class="navigation__subNavCategoryLinks">
+            <a class="db pv2 link white f3" href="/beauty-articles">Journal</a>
+          </div>
+        </div> --}}
+        <div class="pv4">
+          <span class="db light-blue tracked ttu b f6 pb3">Learn</span>
+          <div class="navigation__subNavCategoryLinks">
+            <a class="db pv2 link white f3" href="/ingredients/beauty-history">Beauty History</a>
+            <a class="db pv2 link white f3" href="/ingredients">Our Ingredients</a>
+            <a class="db pv2 link white f3" href="/bad-ingredients">Ingredients To Avoid</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="navigation__connectNav" class="navigation__subNav fixed top-0 bottom-0 pl3 pl4-l pt4 pb5 z-3 bg-navy">
+      <span class="navigation__subNavClose dn db-l absolute top-2 right-2 w1 h1 bg-center contain dim pointer"></span>
+      <div class="navigation__subNavInner h-100 mt4 pt4 pb6 overflow-y-scroll">
+        <span class="db white ttu f6 pb3">Indie's Community</span>
+        <div class="navigation__subNavCategoryLinks">
+          {{!-- <a class="db pv2 link white f3" href="/loyalty-program">Loyalty Program</a> --}}
+          <a class="db pv2 link white f3" href="/upcoming-events">Upcoming Events</a>
+          <a class="db pv2 link white f3" href="/frequent-questions">Frequent Questions</a>
+        </div>
+        <span class="db white ttu f6 pt4 pb3">Join Us</span>
+        <div class="navigation__subNavCategoryLinks mb5">
+          {{!-- <a class="db pv2 link white f3" href="/careers">Careers</a>
+          <a class="db pv2 link white f3" href="/affiliates">Affiliates</a> --}}
+          <a class="db pv2 link white f3" href="//wholesale.indielee.com">Wholesale</a>
+        </div>
+        <a class="dib mb4 pv3 ph4 ba b--white bg-navy pointer dim" href="mailto:customerservice@indielee.com"><span class="dib mr3 white b ttu">Email Us</span><img class="dib" src="/images/svg/arrow-right.svg" /></a>
+        <br />
+        <a class="dib mb2 f3 fw4 white link" href="tel:+18664881638">+1 866 488-1638</a>
+        <p class="mw5-l white o-60">Please note that our customer service hours of operation are Monday to Friday 9am to 5pm (EST).</p>
+      </div>
+    </div>
+    <div id="navigation__searchNav" class="navigation__subNav navigation__subNav--right-l fixed top-0 bottom-0 ph3 ph4-l pt4 pb5 z-3 bg-navy">
+      <span class="navigation__subNavClose dn db-l absolute top-2 left-2 w1 h1 bg-center contain dim pointer"></span>
+      <div class="navigation__subNavInner h-100 mt4 pt4 pb6 overflow-y-scroll">
+        <div class="search" data-component="search">
+          {{> search}}
+        </div>
+      </div>
+    </div>
+
+    {{!-- Preact component will load here --}}
+    <div id="navigationLogin"></div>
+    <!-- end navigation -->
+  </div>
+</header>

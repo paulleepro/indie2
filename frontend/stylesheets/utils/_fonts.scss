@@ -1,0 +1,52 @@
+// @TODO::
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 400;
+  src: url('../../fonts/Avenir-Roman-webfont.woff') format('woff');
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 500;
+  src: url('../../fonts/Avenir-Medium-webfont.woff') format('woff');
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 700;
+  src: url('../../fonts/Avenir-Black-webfont.woff') format('woff');
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: 'Super Clarendon';
+  src: url('../../fonts/Superclarendon-Light-04.woff') format('woff');
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: 'Trend Sans';
+  src: url('../../fonts/Trend-Sans-One.woff') format('woff');
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+$font-super-clarendon: 'Super Clarendon', serif;
+$font-avenir: 'Avenir', sans-serif;
+$font-trend-sans: 'Trend Sans', 'Super Clarendon', serif; //Trend will fall back to super clarendon if not installed
+
+.super-clarendon { 
+  font-family: $font-super-clarendon;
+  font-weight: 100 !important;
+}
+
+.avenir {
+  font-family: $font-avenir;
+}
+
+.trend-sans {
+  font-family: $font-trend-sans;
+}
+

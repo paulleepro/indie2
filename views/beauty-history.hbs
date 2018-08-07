@@ -1,0 +1,40 @@
+<section class="history__heading w-100 pv3 pv5-l ph3 ph4-l flex justify-center relative">
+  <div class="w-70 mw6 tc">
+    <p class="navy mb2 f6 fw6">Beauty History</p>
+    <h1 class="normal ma0 f3 super-clarendon">Beauty Through The Ages</h1>
+  </div>
+  <a href="/ingredients" class="bn ba-l b--navy pv3 ph2 ph4-l link flex items-center self-center justify-end absolute right-1 right-2-l">
+    <p class="navy tc pr3 mv0 f6 fw6">
+      <span class="db dn-l"></span><span class="dn db-l nowrap">Our Ingredients</span>
+    </p>
+    <img src="/images/svg/navy-arrow-right.svg">
+  </a>
+</section>
+<section class="w-100 ph3 ph4-l flex">
+  <div class="history__subNav w-25 bg-center cover dn db-l border-box ph3">
+    <div class="history__subNav--inner">
+      {{#each cms.sections as |section|}}
+        <a href="#" class="scrollToLink {{#if @first}}scrollToLink--active{{/if}} link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#{{{slugify section.fields.heading}}}">{{section.fields.heading}}</a>
+      {{/each}}
+    </div>
+  </div>
+  <div class="history__sections w-100 w-50-l pt3 pt0-l mb5 bg-center cover bl-l br-l b--light-gray border-box">
+    {{#each cms.sections as |section|}}
+      <div class="history__sectionWrapper w-100 flex-l bb-l b--light-gray">
+        <div class="w-100">
+          <div id="{{{slugify section.fields.heading}}}" class="history__section ph4-l {{#if @first}}mt0 mb4{{else}}mv4{{/if}}">
+            <img src="{{section.fields.image.fields.file.url}}?q=80&w=1200" class="w-100 h-auto">
+            <h4 class="navy mb0">{{section.fields.date}}</h4>
+            <h2 class="super-clarendon mv2 f2">{{section.fields.heading}}</h2>
+            <div class="history__markup lh-copy">
+              {{{marked section.fields.description}}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="w-25 dn db-l border-box ph3">
+  </div>
+  <div class="cf"></div>
+</section>

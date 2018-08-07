@@ -1,0 +1,29 @@
+<section class="storefront__ritual relative dn pl3 pl5-l mt5 pb5">
+    <div class="storefront__mobileIntroCopy relative db dn-l w-60">
+        <h1 class="storefront__mobileTitle mv1 ttu f3 fw5">{{ritual.name}}</h1>
+        <img class="pt3 w2" src="{{ritual.detailedIcon.fields.file.url}}">
+        <span class="storefront__mobileDescription db pt3 pb5 f5 lh-copy">{{ritual.description}}</span>
+    </div>
+    <div class="storefront__scroller {{#unless @last}}{{#ifCond ritual.products.length '<' 4}}storefront__scroller--short{{/ifCond}}{{/unless}} hzScroller relative pb5">
+        <div class="storefront__scrollerItem hzScroller__item dn db-l">
+            <div class="storefront__scrollerIntroCopy">
+                <h1 class="storefront__scrollerTitle mv1 avenir fw1 f3">{{ritual.name}}</h1>
+                <img class="pt3 w3" src="{{ritual.detailedIcon.fields.file.url}}">
+                <span class="storefront__scrollerDescription db pt3 pb5 f5 lh-copy w-50-l">{{ritual.description}}</span>
+                <a class="storefront__cta db pv3 link" href="/shop/ritual/{{ritual.slug}}"><span class="dib mr3 black f5 fw5">See all {{ritual.name}} ({{ritual.products.length}})</span></a>
+            </div>
+        </div>
+        {{#if ritual.featuredProducts}}
+            {{#each ritual.featuredProducts as |product|}}
+                {{> storeFrontProduct product=(lookup ../appData.products product)}}
+            {{/each}}
+        {{else}}
+            {{#each ritual.products as |product|}}
+                {{> storeFrontProduct product=product}}
+            {{/each}}
+        {{/if}}
+    </div>
+    <div class="storefront__mobileCtaWrap relative db dn-l">
+        <a class="storefront__cta db pt3 pt5-m pb3 link" href="/shop/ritual/{{ritual.slug}}"><span class="dib mr3 black f5 fw5">See all {{ritual.name}} ({{ritual.products.length}})</span></a>
+    </div>
+</section>

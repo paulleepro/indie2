@@ -1,0 +1,162 @@
+.underline-input {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+// show for screen readers only ADA accessibilty used to add 
+// image tags to responsive background image elements and hide 
+// them without using display none so screen readers can see them
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.turbolinks-progress-bar {
+  height: 2px;
+  background-color: $black;
+}
+
+.hzScroller {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    display: block;
+    -webkit-appearance: none;
+    height: 2px;
+    background-color: rgba(0,0,0,.2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $navy;
+  }
+}
+
+.hzScroller__item {
+  flex: 0 0 auto;
+  margin-right: 2px;
+  width: 200px;
+  @include breakpoint(l) {
+    width: 250px;
+  }
+}
+
+.storefront__scroller--short {
+  border: 0;
+  @include breakpoint(l) {
+    border-bottom: 2px solid $light-grey;
+  }
+}
+
+.transition-opacity {
+  transition: opacity .2s ease-in;
+}
+
+.transition-color {
+  transition: color .2s ease-in;
+}
+
+.transition-all {
+  transition: all .2s ease-in;
+}
+
+.v-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.h-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.a-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Common 
+.slick-slider {
+  .slide { outline: 0; }
+
+  ul.slick-dots {
+    display: flex;
+    justify-content:center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1em 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin: 0em .4em;
+
+      button {
+        width: 14px;
+        height: 14px;
+        font-size: 0;
+        background: $light-grey;
+        border-radius: 12px;
+        border: none;
+        outline: 0;
+        cursor: pointer;
+      }
+
+      &.slick-active button{
+        background: $blue-grey;
+      }
+    }
+  }
+}
+
+.w-sixth {
+  width: calc(100% / 6);
+}
+
+.w-sixth-l {
+  @include breakpoint(l) {
+    width: calc(100% / 6);
+  }
+}
+
+.loading {
+  width: 10rem;
+  height: 10rem;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/images/loading-transparent.gif');
+
+  &.loading-small {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+// max-width 30 large
+.mw30rem-l {
+  @include breakpoint(l) {
+    max-width: 30rem;
+  }
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}

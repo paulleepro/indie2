@@ -1,0 +1,12 @@
+.ingredientOverlay__wrapper { 
+  right: -100%;
+  transition: all 400ms linear;
+  
+  &.ingredientOverlay__wrapper--open {
+    right: 0;
+  }
+}
+
+.ingredientOverlay__close {
+  background-image: url("/images/svg/close.svg");
+}

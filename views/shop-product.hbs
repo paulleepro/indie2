@@ -1,0 +1,46 @@
+<div id="product" class="product" data-component="product">
+    {{> product}}
+</div>
+<section class="completeTheRitual">
+    <div class="completeTheRitual__inner pv5 ph4 bg-center cover" style="background-image: url('{{product.ritual.0.fields.wallpaper.fields.file.url}}?q=80&w=1200')">
+        <div class="completeTheRitual__introMobile db dn-l mw5 mb5">
+            <h2 class="completeTheRitual__title f2 fw5">Complete the Ritual</h2>
+            <p class="completeTheRitual__description">{{product.ritual.0.fields.description}}</p>
+        </div>
+        <div class="completeTheRitual__scroller pb5 pb5-l hzScroller">
+            <div class="completeTheRitual__scrollerItem hzScroller__item ph0 ph4-l bg-white">
+                <div class="completeTheRitual__scrollerIntroCopy dn db-l pt5">
+                    <h2 class="completeTheRitual__scrollerTitle ma0 f3 fw5 black">Complete the Ritual</h2>
+                    <span class="completeTheRitual__scrollerDescription db pt4 pb4 f5 lh-copy black">{{product.ritual.0.fields.description}}</span>
+                </div>
+            </div>
+            {{#each (limit relatedProducts 4) as |product|}}
+                {{#unless product.fields.disabled}}
+                <a class="completeTheRitual__scrollerItem hzScroller__item relative pv4 link black bg-white" href="/shop/products/{{product.fields.slug}}">
+                    <img class="completeTheRitual__productRitualIcon absolute w1 top-1 left-1" src="{{product.fields.ritual.0.fields.icon.fields.file.url}}">
+                    <div class="completeTheRitual__productImage relative aspect-ratio--1x1 contain bg-center-l" style="background-image: url('{{product.fields.images.0.fields.file.url}}?q=80&w=480')">
+                        <img class="sr-only" alt="{{product.fields.name}}" src="{{product.fields.images.0.fields.file.url}}?q=10&w=1">
+                    </div>
+                    <h2 class="completeTheRitual__productName mt3 mb0 ph3 f5 b tc">{{product.fields.name}}</h2>
+                    <div class="completeTheRitual__productDetails mv2 ph3 f5 tc">
+                        {{#ifCond product.fields.productVariants.length '===' 1}}
+                            <span class="completeTheRitual__productVariants">{{product.fields.productVariants.0.fields.variation}}</span>
+                            <span class="completeTheRitual__productPrice"> | ${{product.fields.price}}.00</span>
+                        {{else}}
+                            <span class="completeTheRitual__productVariants">{{product.fields.productVariants.length}} Sizes</span>
+                            <span class="completeTheRitual__productPrice"> | From
+                                {{#each product.fields.productVariants as |variant|}}
+                                    {{#if @last}}${{variant.fields.price}}.00{{/if}}
+                                {{/each}}
+                            </span>
+                        {{/ifCond}}
+                    </div>
+                </a>
+                {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+</section>
+<div id="ingredientOverlay" class="ingredientOverlay__wrapper fixed z-5 top-0 flex items-center justify-center vh-100 w-100 w-40-l bg-navy" data-component="ingredientOverlay">
+  {{> ingredientOverlay}}
+</div>

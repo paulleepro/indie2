@@ -1,0 +1,151 @@
+.storefront__controls {
+  margin-top: -4rem;
+
+  @include breakpoint(l) {
+    margin-top: -5.2rem;
+  }
+}
+
+.storefront__filtersToggle,
+.storefront__filtersToggleText,
+.storefront__filtersToggleIconBar {
+  transition: all 100ms linear;
+}
+
+.storefront__filtersToggleIcon,
+.storefront__filtersToggleIconBar,
+.storefront__filters {
+  transition: all 200ms linear;
+}
+
+.storefront__filtersToggle {
+  min-width: 12rem;
+
+  .storefront__filtersToggleText {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &[data-state="open"] {
+    border: none;
+    background-color: transparent;
+
+    .storefront__filtersToggleText {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .storefront__filtersToggleIcon {
+      span::after {
+        background-image: url("/images/svg/close-black.svg");
+        transform: translateY(0%);
+      }
+    }
+  }
+}
+
+.storefront__filtersToggleIcon {
+  transform: translateY(5px) translateX(-5px);
+}
+
+.storefront__filtersToggleIconBar {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1rem; 
+    height: 1rem; 
+    background-image: url('/images/svg/arrow-down-dark.svg');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.storefront__filters {
+  height: 0;
+
+  .storefront__filterBlock {
+    flex-grow: 1;
+  }
+}
+
+.storefront__filterBlockFilter--active {
+  
+  span {
+    border-bottom: 1px solid $black;
+  }
+}
+
+.storefront__wrap[data-active-segment="ritual"] {
+  .storefront__segmentToggle--ritual {
+    color: $white;
+    border-color: $navy;
+    background-color: $navy;
+  }
+
+  .storefront__filterBlock[data-filter-type="ritual"] {
+    display: none;
+  }
+
+  .storefront__ritualHeader {
+    display: block;
+  }
+
+  .storefront__ritual {
+    display: block;
+
+    @include breakpoint(l) {
+      margin-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  .storefront__scroller {
+    @include breakpoint(l) {
+      padding-bottom: 2.5rem;
+    }
+  }
+}
+
+.storefront__wrap[data-active-segment="focus"] {
+  .storefront__segmentToggle--focus {
+    color: $white;
+    border-color: $navy;
+    background-color: $navy;
+  }
+
+  .storefront__filterBlock[data-filter-type="focus"] {
+    display: none;
+  }
+
+  .storefront__focusHeader {
+    display: block;
+  }
+
+  .storefront__focus {
+    display: block;
+
+    @include breakpoint(l) {
+      margin-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+}
+
+.storefront__scrollerItem {
+  margin-right: 2px;
+
+  &.storefront__scrollerItem--item {
+    width: 200px;
+    @include breakpoint(l) {
+      width: 250px;
+    }
+  }
+}
+
+.storefront__focusBar {
+  width: 100px;
+  height: 20px;
+}

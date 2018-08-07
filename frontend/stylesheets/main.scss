@@ -1,0 +1,66 @@
+/* libs */
+@import 'lib/tachyons-4.8.0.min.css';
+@import 'lib/mapbox-gl.css';
+
+/* utils */
+@import 'utils/fonts';
+@import 'utils/breakpoints';
+@import 'utils/colors';
+@import 'utils/utilities';
+
+/* main */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 15px;
+  font-family: 'Avenir', sans-serif;
+  letter-spacing: .5px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+select {
+  // Hide default dropdown arrow on Firefox
+  -moz-appearance: none;
+
+  // For Windows, option inherits select font color
+  option {
+    color: $black;
+  }
+}
+
+.turbolinks-progress-bar {
+  height: 2px;
+  background-color: $navy;
+}
+
+/* components */
+@import 'components/header';
+@import 'components/footer';
+@import 'components/navigation';
+@import 'components/forms';
+@import 'components/cart';
+@import 'components/checkout';
+@import 'components/order';
+@import 'components/articles';
+@import 'components/storeLocator';
+@import 'components/upcomingEvents';
+@import 'components/section';
+@import 'components/sectionNavigator';
+@import 'components/modal';
+@import 'components/ingredientOverlay';
+
+/* views */
+@import 'views/home';
+@import 'views/storefront';
+@import 'views/product';
+@import 'views/ingredients';
+@import 'views/faq';
+@import 'views/empower';
+@import 'views/account';
+@import 'views/generalContent';
+@import 'views/resetPassword';
+@import 'views/error';

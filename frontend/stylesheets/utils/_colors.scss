@@ -1,0 +1,52 @@
+$black: #000;
+$white: #fff;
+$offwhite: #F8F6F5;
+$blueoffwhite: #F7FBFC;
+$light-grey: #D8D8D8;
+$lighter-grey: #CCC;
+$lightest-grey: #EDEDED;
+$blue-grey: #839FB8;
+$navy: #1D4465;
+$light-blue: #BBDDE6;
+$teal: #2D8C9E;
+
+.bg-white-l {
+  @include breakpoint(l) {
+    background-color: $white !important;
+  }
+}
+
+.navy { color: $navy; }
+.bg-navy { background-color: $navy; }
+.b--navy { border-color: $navy; }
+.hover-navy:hover { color: $navy; }
+
+.light-blue { color: $light-blue; }
+.bg-light-blue { background-color: $light-blue; }
+.b--light-blue { border-color: $light-blue; }
+
+.light-grey { color: $light-grey; }
+.bg-light-grey { background-color: $light-grey; }
+.b--light-grey { border-color: $light-grey; }
+.b--light-grey-l { 
+  @include breakpoint(l) {
+    border-color: $light-grey; 
+  }
+}
+
+.lighter-grey { color: $lighter-grey; }
+.bg-lighter-grey { background-color: $lighter-grey; }
+.b--lighter-grey { border-color: $lighter-grey; }
+
+.offwhite { color: $offwhite; }
+.bg-offwhite { background-color: $offwhite; }
+.bg-offwhite-l { 
+  @include breakpoint(l) {
+  	background-color: $offwhite; 
+  }
+}
+.b--offwhite { border-color: $offwhite; }
+
+.blueoffwhite { color: $blueoffwhite; }
+.bg-blueoffwhite { background-color: $blueoffwhite; }
+.b--blueoffwhite { border-color: $blueoffwhite; }

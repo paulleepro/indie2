@@ -1,0 +1,34 @@
+<div class="relative ph3 ph4-l">
+  <a href="/upcoming-events" class="relative absolute-l left-1-l top-1 mt3 mt0-l pl3-l navy fw5 link">
+    <img class="dib v-mid mr2" src="/images/svg/navy-arrow-left.svg"> 
+    <span>ALL EVENTS</span>
+  </a>
+  <h1 class="w-100 w-75-l center super-clarendon f1 fw4 tc-l">{{cms.name}}</h1>
+</div>
+<div class="flex flex-column flex-row-l ph3 ph4-l pb5">
+  <div class="order-0 w-100 w-50-l pr0 pr4-l br b--light-gray">
+    <img class="w-100" src="{{cms.image.fields.file.url}}?q=80&w=1200">
+  </div>
+  <div class="order-2 order-1-l w-100 w-third-l ph4-l br b--light-gray">
+    <div class="event__markup lh-copy">
+      {{{marked cms.description}}}
+    </div>
+    {{#if cms.url}}
+      <a class="eventRsvpLink dib w-auto ph4 pv3 mv4 bg-navy link white f5" href="{{cms.url}}" target="_blank" rel="noopener">RESERVE YOUR SPOT</a>
+    {{/if}}
+  </div>
+  {{{stringify event}}}
+  <div class="order-1 order-2-l w-100 w-sixth-l pl4-l">
+    <span class="dib dn-l w-100 pv2 super-clarendon f5 fw8 tracked">{{{dateTimeFormat cms.date}}}</span>
+    <span class="dn dib-l w-100 pb2 super-clarendon f5 fw8 tracked bb-l b--light-gray">{{{dateGetMonth cms.date}}} {{{dateGetDay cms.date}}}</span>
+    <span class="dn dib-l w-100 pv2 super-clarendon f5 fw8 tracked bb-l b--light-gray">{{{dateGetTime cms.date}}}</span>
+    <span class="dib w-100 pv2 super-clarendon f5 fw8 tracked">{{{cms.location}}}</span>
+    <h5 class="mv2 mv4-l navy fw8 tracked">SOCIAL</h5>
+    <div>
+        <a class="db pv1 link black f6" href="https://instagram.com/indie_lee/?hl=en" target="_blank" rel="noopener">Instagram</a>
+        <a class="db pv1 link black f6" href="https://www.facebook.com/ILikeIndieLee" target="_blank" rel="noopener">Facebook</a>
+        <a class="db pv1 link black f6" href="https://www.pinterest.com/indielee/" target="_blank" rel="noopener">Pinterest</a>
+        <a class="db pv1 link black f6" href="https://twitter.com/indie_lee" target="_blank" rel="noopener">Twitter</a>
+    </div>
+  </div>
+</div>

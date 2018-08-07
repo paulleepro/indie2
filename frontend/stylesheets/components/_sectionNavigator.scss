@@ -1,0 +1,12 @@
+.sectionNavigator {
+  top: 13.5rem;
+}
+
+.sectionNavigator__item {
+  color: $lighter-grey;
+}
+
+.sectionNavigator__item--selected {
+  border-left: .25rem solid $teal;
+  color: $black;
+}

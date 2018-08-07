@@ -1,0 +1,36 @@
+<div class="empower relative flex flex-column flex-row-l pb3">
+    <div class="dib w-100 w-50-l pl3-l pr4-l">
+      <div class="empower__mainText relative border-box w-100 ph3 ph5-l tc">
+        <h1 class="empower__heading relative super-clarendon f1 fw1">{{cms.mainHeading}}</h1>
+        <div class="pv3-l ph4 ph2-l bg-white">
+          <div class="philsophy__markup f3 lh-copy">
+            {{{marked cms.mainDescription}}}
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="empower__articles w-100 w-50-l pr3-l bl b--moon-gray">
+    {{#each cms.empowerArticles as |article|}}
+      <a href="/empower/{{article.fields.slug}}" class="db black link">
+        <div class="empower__article pt4 pb4 ph3 ph4-l {{#ifEven @index}}bb{{/ifEven}} b--moon-gray">
+          <h4 class="mv0 navy">{{article.fields.title}}</h4>
+          {{#ifCond article.fields.media.length '>' 1}}
+            <div class="empower__slickSlider slickSlider w-100 mt3 overflow-hidden z-9">
+              {{#each article.fields.media as |image|}}
+                <div class="empower__guru slide fl tc">
+                  <div class="aspect-ratio--1x1 w-100 bg-center cover" style="background-image: url('{{image.fields.file.url}}?q=80&w=1200')"></div>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            <div class="aspect-ratio--1x1 w-100 mv3 bg-center cover" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=80&w=1200')"></div>
+          {{/ifCond}}
+          <div class="empower__markup empower__markup--first-only lh-copy">
+            {{{marked article.fields.body}}}
+          </div>
+          <span class="dib mt4 navy pointer f6 tracked ttu">Read More</span>
+        </div>
+      </a>
+    {{/each}}
+  </div>
+</div>

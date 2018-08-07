@@ -1,0 +1,15 @@
+<div class="ingredientOverlay__inner w-100 ph4 ph5-l white">
+  <div class="relative w-100">
+    <span class="ingredientOverlay__close absolute top-0 right-0 w1 h1 dib bg-center contain dim pointer"></span>
+    <h3 class="mt0 mb2">{{ingredient.name}}</h3>
+    <h5 class="mt0">{{ingredient.scientificName}}</h5>
+    <div class="ingredientOverlay__detailsCopy pb3 lh-copy">
+      {{#if ingredient.details}}
+        {{{marked ingredient.details}}}
+      {{else}}
+        {{{marked ingredient.uses}}}
+      {{/if}}
+    </div>
+    <a class="white fw8 link ttu" href="/ingredients/{{ingredient.slug}}">Learn More</a>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="storefront__wrap" data-active-segment="{{activeSegment}}">
+    <div class="storefront__controls bg-offwhite">
+        <div class="storefront__controlsInner flex flex-wrap pt6 pb4 ph2 ph4-l">
+            <div class="storefront__segmentTogglesWrap w-100 w-50-ns flex items-center justify-between justify-start-ns mb4 mb0-ns">
+                <span class="storefrontAction__segmentToggle storefront__segmentToggle storefront__segmentToggle--ritual w-50 w-auto-ns pv3 ph4 bt bb bl b--moon-gray tc bg-white pointer" data-segment="ritual">Ritual</span>
+                <span class="storefrontAction__segmentToggle storefront__segmentToggle storefront__segmentToggle--focus w-50 w-auto-ns pv3 ph4 bt bb br b--moon-gray tc bg-white pointer" data-segment="focus">Focus</span>
+            </div>
+            <div class="storefront__filtersToggleWrap relative flex justify-end-ns w-100 w-50-ns">
+                <div class="storefront__filtersToggle storefrontAction__filtersToggle inline-flex justify-between w-100 w-40-ns pa3 ba b--moon-gray bg-white pointer" data-state="closed">
+                    <span class="storefront__filtersToggleText">What is this?</span>
+                    <div class="storefront__filtersToggleIcon relative">
+                        <span class="storefront__filtersToggleIconBar absolute top-0 left-0 db bg-dark-gray"></span>
+                        <span class="storefront__filtersToggleIconBar absolute top-0 right-0 db bg-dark-gray"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="storefront__filters flex flex-wrap content-stretch justify-between w-100 pv3 overflow-y-hidden" data-state="closed">
+                <div class="storefront__filterBlock w-100 w-50-ns pa3">
+                    <h3 class="storefront__filterBlockHeading ma0 pv2 bb b--moon-gray f5 ttu">Ritual</h3>
+                    <p>We believe in keeping routines simple, effective and personal. That’s why we created the 4 Ps and a B ritual. This customizable approach to skincare uses our clean, efficacious formulas to deliver makeup-optional skin. Look for the corresponding icon on each package to determine what is right for you.</p>
+                </div>
+                <div class="cf"></div>
+                <div class="storefront__filterBlock w-100 w-50-ns pa3">
+                    <h3 class="storefront__filterBlockHeading ma0 pv2 bb b--moon-gray f5 ttu">Focus</h3>
+                    <p>Using our iconic color banding, each product category is grouped by skin focus. Combine Ritual icons and Focus colors to create a complete set for your daily skincare needs.</p>
+                </div>
+                <div class="cf"></div>
+            </div>
+        </div>
+    </div>
+    <div id="storefrontSegments" class="storefrontSegments bg-white" data-component="storefrontSegments">
+        {{> storefrontSegments}}
+    </div>
+</div>

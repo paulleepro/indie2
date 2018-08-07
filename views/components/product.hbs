@@ -1,0 +1,84 @@
+<div class="product__wrap" data-product-slug="{{product.slug}}">
+    <section class="product__mainInfo flex flex-wrap items-stretch-l pt5 bg-white">
+        <div class="product__images w-100 w-60-l pr0" style="background: {{hexToRgba product.focus.0.fields.hexColor product.focus.0.fields.alpha}}">
+            {{#each selectedVariant.fields.images as |image|}}
+                <div class="product__image relative aspect-ratio--7x5 bg-center contain" style="background-image: url('{{image.fields.file.url}}?q=80&w=1200');">
+                    <img class="sr-only" alt="{{../product.name}}" src="{{image.fields.file.url}}?q=10&w=1">
+                </div>
+            {{/each}}
+        </div>
+        <div class="product__details w-100 w-40-l pb5 ph3 pl5-l pr5-l b--light-grey bg-white">
+            <h1 class="product__name w-100 relative dib mt4 mt3-l mb0 ttu f3">
+                <span class="fl f5 tracked trend-sans">{{product.name}}</span>
+                <img class="product__ritualIcon fr" src="{{product.ritual.0.fields.icon.fields.file.url}}?q=90&w=1440">
+                <div class="cf"></div>
+            </h1>
+            {{#if product.strapLine}}
+                <p class="f4 fw5">{{product.strapLine}}</p>
+            {{/if}}
+            <p class="product__description mv4 f5 lh-copy">
+                {{product.description}}
+            </p>
+            <div class="product__productVariants flex flex-wrap mb4">
+                {{#each product.productVariants as |variant|}}
+                    <span class="product__variant {{#ifCond variant.fields.sku '===' ../selectedVariant.fields.sku}}product__variant--selected{{/ifCond}} productAction__selectVariant relative dib mv2 ph4 b f5 pointer" data-variant-sku="{{variant.fields.sku}}" data-variant-img="{{variant.fields.images.0.fields.file.url}}" data-variant-price="{{#with (lookup ../magento @index)}}{{product.price}}{{/with}}" data-variant-stock="{{#with (lookup ../magento @index)}}{{inStock}}{{/with}}">{{variant.fields.variation}}</span>
+                {{/each}}
+            </div>
+            <button class="cartAction__addToCart {{#if magento.0.inStock}}db{{else}}dn{{/if}} w-100 pv3 br0 bn ttc b bg-navy white pointer" data-item-sku="{{selectedVariant.fields.sku}}" data-item-name="{{product.name}}" data-item-slug="{{product.slug}}" data-item-variation="{{selectedVariant.fields.variation}}" data-item-price="{{magento.0.product.price}}" data-item-quantity="1" data-item-image="{{selectedVariant.fields.images.0.fields.file.url}}" data-item-icon="{{product.ritual.0.fields.icon.fields.file.url}}">
+            Add To Your Cart – {{moneyFormat magento.0.product.price}}</button>
+            <button class="cartAction__addToCart--disabled {{#if magento.0.inStock}}dn{{else}}db{{/if}} w-100 pv3 br0 bn ttc b bg-navy white disabled" disabled>
+            Temporarily Out Of Stock</button>
+            <div id="cartAction__addToCart--success" class="dn pt3 dark-green tc">Added to cart!</div>
+            <div class="product__ingredients mt4 pv4 bt b--light-grey">
+                <h2 class="product__ingredientsTitle ma0 f5 b">Key Ingredients:</h2>
+                <ul class="product__ingredientsList list pa0 mt3">
+                {{#each product.ingredients as |ingredient|}}
+                    <li class="product__ingredient ingredientOverlay__show pv1 pointer underline navy f4" data-target="{{ingredient.fields.slug}}">{{ingredient.fields.name}}</li>
+                {{/each}}
+                </ul>
+                <h2 class="product__ingredientsTitle mt2 mb0 f5 b">See All Ingredients:</h2>
+                <div class="product__allIngredientsCopy mb0 mt2 f5 lh-copy">
+                    {{{marked product.allIngredients}}}
+                    <a class="navy f5" href="/bad-ingredients">Our products are never formulated with...</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product__secondaryInfo flex flex-wrap items-stretch-l" style="background: {{hexToRgba product.focus.0.fields.hexColor product.focus.0.fields.alpha}}">
+        <div class="product__video w-100 w-60-l pr0">
+            {{#if product.video}}
+                {{> video videoSrc=product.video.fields.file.url}}
+                {{#if product.videoTranscript}}
+                    <span class="product__viewTranscript db pa3 underline pointer" role="button" tabindex="0">View Transcript</span>
+                    <div class="product__videoTranscript dn ph3">
+                        {{{marked product.videoTranscript}}}
+                    </div>
+                {{/if}}
+            {{else}}
+                <div class="product__image aspect-ratio--1x1 bg-top cover" style="background-image: url('{{#if product.secondaryImage}}{{product.secondaryImage.fields.file.url}}{{else}}{{product.images.0.fields.file.url}}{{/if}}?q=80&w=1200');"></div>
+            {{/if}}
+        </div>
+        <div class="product__otherDetails w-100 w-40-l ph3 ph0-l pv5 ph5-l b--light-grey">
+            <div class="product__directions b--light-grey">
+                <h2 class="product__directionsTitle ma0 f5 b">How To Use:</h2>
+                <div class="product__directionsCopy mb0 mt2">
+                    {{{marked product.directions}}}
+                </div>
+            </div>
+            <div class="product__bestFor b--light-grey">
+                <h2 class="product__bestForTitle ma0 pt4 f5 b">Solutions For:</h2>
+                <div class="product__bestForCopy mb0 mt2">
+                    {{{marked product.bestFor}}}
+                </div>
+            </div>
+            <div class="product__texture b--light-grey">
+                {{#if product.quote}}
+                    <h2 class="product__textureTitle ma0 pt4 f5 b">Quote Me:</h2>
+                    <p class="product__textureCopy mb0 mt2">
+                        {{{marked product.quote}}}
+                    </p>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+</div>

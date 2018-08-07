@@ -1,0 +1,9 @@
+<div class="video__container relative h-auto">
+  <div class="video__startScreen absolute items-center justify-center w-100 aspect-ratio--16x9 bg-center cover z-999" {{#if coverImgSrc}}style="background-image: url('{{coverImgSrc}}')"{{/if}}>
+    <img class="video__playBtn absolute a-center pointer z-999" src="/images/svg/play-btn.svg">
+  </div>
+  <video class="db relative w-100 h-auto z-2" poster="{{coverImgSrc}}" preload="metadata">
+    <source src="{{videoSrc}}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>

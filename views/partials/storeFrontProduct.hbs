@@ -1,0 +1,18 @@
+<a class="storefront__scrollerItem storefront__scrollerItem--item hzScroller__item relative w-70 w-50-m pv4 link black" style="background: {{hexToRgba product.focus.0.fields.hexColor product.focus.0.fields.alpha}};" href="/shop/products/{{product.slug}}">
+        <img class="storefront__productRitualIcon absolute w1 top-1 left-1" src="{{product.ritual.0.fields.icon.fields.file.url}}">
+        <div class="storefront__productImage aspect-ratio--1x1 contain bg-center" style="background-image: url('{{product.images.0.fields.file.url}}?q=80&w=480')"></div>
+        <h2 class="storefront__productName mt3 mb0 ph3 f5 b tc">{{product.name}}</h2>
+        <div class="storefront__productDetails mv2 ph3 f5 tc">
+            {{#ifCond product.productVariants.length '===' 1}}
+                <span class="storefront__productVariants">{{../product.productVariants.0.fields.variation}}</span>
+                <span class="storefront__productPrice"> | ${{../product.price}}.00</span>
+            {{else}}
+                <span class="storefront__productVariants">{{../product.productVariants.length}} Sizes</span>
+                <span class="storefront__productPrice"> | From 
+                    {{#each ../product.productVariants as |variant|}}
+                        {{#if @last}}${{variant.fields.price}}.00{{/if}}
+                    {{/each}}
+                </span>
+            {{/ifCond}}
+        </div>
+    </a>

@@ -1,0 +1,23 @@
+.section__title {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include breakpoint(l) {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    padding-left: 2rem;
+    padding-right: 0rem;
+  }
+}
+
+.section__content--divider {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $light-grey;
+
+  @include breakpoint(l) {
+    margin-left: -2rem;
+  }
+}

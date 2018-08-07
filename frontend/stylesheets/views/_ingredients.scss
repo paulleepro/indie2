@@ -1,0 +1,154 @@
+.ingredients__tiles {
+  @include breakpoint(l) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.ingredient__tileOverlay {
+  display: block;
+  opacity: 0;
+  background: rgba(255,255,255,.7);
+}
+
+.ingredient__tileText {
+  z-index: 2;
+  transition: all 250ms ease-in;
+}
+
+.ingredient__tile:hover .ingredient__tileOverlay {
+  opacity: 1;
+}
+
+.ingredient__tile:hover .ingredient__tileText {
+  span {
+    background: rgba(255,255,255,0);
+  }
+}
+
+.ingredient__image {
+  height: 25em;
+  @include breakpoint(l) {
+    height: 45em;
+  }
+}
+
+// Individual ingredient
+.headingToggle__wrapper {
+  border-bottom: none;
+
+  @include breakpoint(l) { cursor: initial; }
+
+  .headingToggle__heading {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding-right: 1.5em;
+    font-weight: 400;
+  }
+
+  & + .ingredient__markup {
+    display: block;
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 1em;
+
+    @include breakpoint(l) { border-bottom: none; }
+
+    p { margin-top: 0; }
+  }
+
+  &.headingToggle__wrapper--closed {
+    border-bottom: solid 1px #ccc;
+
+    @include breakpoint(l) { border-bottom: none; }
+
+    & + .ingredient__markup {
+      display: none;
+      border-bottom: none;
+      
+      @include breakpoint(l) { display: block; }
+    }
+  }
+}
+
+.ingredientProducts__background {
+  height: 220px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.5);
+  }
+}
+
+//Dirty Dozen
+.dirtyIngredient__wrapper {
+  width: 100%;
+  height: auto;
+  transition: all .5s cubic-bezier(0.2, 0.6, 0.3, 1.1);
+
+  @include breakpoint(l) {
+    height: 175px;
+
+    .dirtyIngredient__synopsis {
+      overflow: hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+  }
+
+  .dirtyIngredient__toggle::after {
+    content: '';
+    float: right;
+    width: .75em;
+    height: .75em;
+    background-image: url("/images/svg/arrow-down-dark.svg");
+    background-size: 100% 100%;
+  }
+
+  .dirtyIngredient__additionalInfo {
+    display: none;
+
+    h2 {
+      font-size: 1em;
+    }
+
+    p {
+      font-family: $font-super-clarendon;
+    }
+  }
+}
+
+.dirtyIngredient__wrapper.dirtyIngredient__wrapper--open {
+  background: $black;
+  color: $white;
+
+  .dirtyIngredient__toggle::after {
+    background-image: url("/images/svg/arrow-up-white.svg");
+  }
+
+  .dirtyIngredient__additionalInfo {
+    display: block;
+  }
+
+  @include breakpoint(l) {
+    height: auto;
+
+    .dirtyIngredient__synopsis {
+      overflow: visible;
+      white-space: normal;
+      text-overflow: "";
+    }
+  }
+}
+
+//Beauty History
+.history__subNav .scrollToLink--active { border-left: solid 3px $teal; }
+
+.history__section .history__markup {
+  ul {
+    padding: 0 1.5em;
+  }
+}

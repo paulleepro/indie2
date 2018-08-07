@@ -1,0 +1,82 @@
+.disabled {
+  opacity: .8;
+  cursor: not-allowed !important;
+}
+
+.select {
+  padding: .75rem 2rem .75rem 1rem;
+  color: $white;
+  background-color: transparent;
+  border-color: $white;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-image: url("/images/svg/arrow-down.svg");
+  background-position: calc(100% - 10px) calc(1em + -5px),calc(100% - 15px) calc(1em + 2px),100% 0px;
+  background-size: 25%;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity .15s ease-in;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    opacity: .5;
+  }
+
+  &:active {
+    opacity: .8;
+  }
+}
+
+.fieldsetInput,
+.fieldsetSelect {
+  height: 4.5rem;
+}
+
+.fieldsetInputDark {
+  input {
+    border-bottom: 1px solid rgba(255, 255, 255, .6);
+
+    &:focus,
+    &:active {
+      border-bottom: 1px solid $white;
+    }
+
+    &::placeholder {
+      color: $white;
+      font-size: 1.25rem;
+      opacity: .6;
+    }
+  }
+}
+
+.fieldsetInputDark__submit {
+  right: 2px; // to prevent it from overlapping blue focus outline in input field
+  height: 2.5rem;
+  background-image: url('/images/svg/arrow-right.svg');
+  background-size: 55%;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.fieldsetSelect {
+  select {
+    background-position: calc(100% - 15px) calc(1em + 2px),calc(100% - 15px) calc(1em + 2px), 100% 0;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  .fieldsetSelect__placeholder {
+    color: $light-grey;
+  }
+}

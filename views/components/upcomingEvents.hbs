@@ -1,0 +1,32 @@
+<section class="upcomingEvents__events ph3 pb5">
+  {{#each events as |event|}}
+    <div class="upcomingEvents__event flex-l flex-row items-start justify-center w-100 mb5 mb0-l pa4-l bn bt-l bl-l b--light-gray">
+      <div class="upcomingEvents__date fl fn-l w-25 w-10-l">
+        <span class="dib w-100 f5 fw5 tracked">{{{dateGetMonth event.fields.date}}}</span>
+        <span class="dib w-100 super-calendon f2 fw5">{{{dateGetDay event.fields.date}}}</span>
+      </div>
+      <div class="fl fn-l w-75 w-50-l pl2 pl0-l">
+        <h4 class="mv0">{{event.fields.name}}</h4>
+        <div class="dn db-l">
+          <div class="event__markup lh-copy">
+            {{{marked event.fields.description}}}
+          </div>
+          <span class="dib w-100">{{{dateGetTime event.fields.date}}} | {{event.fields.location}}</span>
+          <a href="/upcoming-events/{{event.fields.slug}}" class="dib w-100 mt3 link navy fw7">LEARN MORE AND RSVP</a>
+        </div>
+      </div>
+      <div class="cf"></div>
+      <div class="w-100 w-40-l mt3 mt0-l">
+        <div class="w-100 aspect-ratio--7x5 bg-center cover" style="background-image: url('{{event.fields.image.fields.file.url}}?q=80&w=600')"></div>
+      </div>
+      <div class="db dn-l pt3">
+        <div class="event__markup lh-copy">
+          {{{marked event.fields.description}}}
+        </div>
+        <span class="dib w-100">{{{dateGetTime event.fields.date}}} | {{event.fields.location}}</span>
+        <a href="/upcoming-events/{{event.fields.slug}}" class="dib w-100 mt3 link navy fw7">LEARN MORE AND RSVP</a>
+      </div>
+    </div>
+  {{/each}}
+</section>
+<div class="cf"></div>

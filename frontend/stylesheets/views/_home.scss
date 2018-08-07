@@ -1,0 +1,49 @@
+.homeHero {
+  margin-top: -4rem;
+
+  @include breakpoint(l) {
+    margin-top: -5.2rem;
+  }
+}
+
+.featureProducts {
+  margin-top: -12rem;
+
+  @include breakpoint(l) {
+    margin-top: 0;
+  }
+}
+
+.featuredArticles {
+
+  @include breakpoint(l) {
+    background-color: $offwhite;
+  }
+}
+
+.featuredArticles__article--first {
+
+  .featuredArticles__copyInner {
+    @include breakpoint(l) {
+      background-color: $offwhite;
+    }
+  }
+
+  .featuredArticles__copyWrap {
+    @include breakpoint(l) {
+      margin-top: -6rem;
+    }
+  }
+}
+
+.featuredEvents__scrollerItemInner {
+  box-shadow: 0 3px 15px 0 rgba(0,0,0,0.10);
+}
+
+.joinTribe__scrollerTitle--mobile {
+  font-size: 2rem;
+}
+
+.joinTribe__scrollerDescription--mobile {
+  color: #4A4A4A;
+}

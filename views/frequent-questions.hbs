@@ -1,0 +1,153 @@
+<div class="faq__heading w-100 pv3 pv4-l ph3 bg-light-gray">
+  <h1 class="super-clarendon ma0 f2 f1-l fw1 tc">Frequent Questions</h1>
+</div>
+<div class="pt4-l pb4 ph3-l">
+  <div class="faq__subNav fl w-100 w-25-l border-box ph3 bg-light-gray bg-white-l">
+    <div class="db dn-l">
+      <div class="faq__subNav--inner-mobile w-100 pv3">
+        <div class="faq__mobileDropdown w-100 pa3 bg-white fw8 ttu outline-0 ba br2 b--light-gray">
+          <select id="faq__mobileDropdown--select" class="w-100 fw8 ttu bg-white bn outline-0 pointer">
+            {{#if cms.companyFaqs}}
+              <option value="#company__faqs">Company</option>
+            {{/if}}
+            {{#if cms.certificationsFaqs}}
+              <option value="#certifications__faqs">Certifications</option>
+            {{/if}}
+            {{#if cms.productInformationFaqs}}
+              <option value="#productInformation__faqs">Product Information</option>
+            {{/if}}
+            {{#if cms.ordersFaqs}}
+              <option value="#orders__faqs">Orders</option>
+            {{/if}}
+            {{#if cms.shippingFaqs}}
+              <option value="#shipping__faqs">Shipping and Handling</option>
+            {{/if}}
+            {{#if cms.returnsFaqs}}
+              <option value="#returns__faqs">Returns and Exchange</option>
+            {{/if}}
+            {{#if cms.contactFaqs}}
+              <option value="#contact__faqs">Contact Information</option>
+            {{/if}}
+            {{#if cms.wholesaleFaqs}}
+              <option value="#wholesale__faqs">Wholesale</option>
+            {{/if}}
+            {{#if cms.giftCardsFaqs}}
+              <option value="#giftCards__faqs">Gift Cards</option>
+            {{/if}}
+            {{#if cms.loyaltyProgramFaqs}}
+              <option value="#loyalty__faqs">Loyalty Program</option>
+            {{/if}}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="dn db-l">
+      <div class="faq__subNav--inner-desktop">
+        {{#if cms.companyFaqs}}
+          <a href="#company__faqs" class="scrollToLink scrollToLink--active link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#company__faqs" data-add-offset="50" data-turbolinks="false">Company</a>
+        {{/if}}
+        {{#if cms.certificationsFaqs}}
+          <a href="#certifications__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#certifications__faqs" data-add-offset="50" data-turbolinks="false">Certifications</a>
+        {{/if}}
+        {{#if cms.productInformationFaqs}}
+          <a href="#productInformation__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#productInformation__faqs" data-add-offset="50" data-turbolinks="false">Product Information</a>
+        {{/if}}
+        {{#if cms.ordersFaqs}}
+          <a href="#orders__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#orders__faqs" data-add-offset="50" data-turbolinks="false">Orders</a>
+        {{/if}}
+        {{#if cms.shippingFaqs}}
+          <a href="#shipping__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#shipping__faqs" data-add-offset="50" data-turbolinks="false">Shipping and handling</a>
+        {{/if}}
+        {{#if cms.returnsFaqs}}
+          <a href="#returns__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#returns__faqs" data-add-offset="50" data-turbolinks="false">Returns and exchanges</a>
+        {{/if}}
+        {{#if cms.contactFaqs}}
+          <a href="#contact__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#contact__faqs" data-add-offset="50" data-turbolinks="false">Contact Information</a>
+        {{/if}}
+        {{#if cms.wholesaleFaqs}}
+          <a href="#wholesale__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#wholesale__faqs" data-add-offset="50" data-turbolinks="false">Wholesale</a>
+        {{/if}}
+        {{#if cms.giftCardsFaqs}}
+          <a href="#giftCards__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#giftCards__faqs" data-add-offset="50" data-turbolinks="false">Gift Cards</a>
+        {{/if}}
+        {{#if cms.loyaltyProgramFaqs}}
+          <a href="#loyalty__faqs" class="scrollToLink link black fw7 tracked ttu dib mb4 pl2 w-100" data-scroll-target="#loyalty__faqs" data-add-offset="50" data-turbolinks="false">Loyalty Program</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="faq__sections fl w-100 w-75-l pt3 pt0-l mb5 border-box">
+    <!-- company section -->
+    {{#if cms.companyFaqs}}
+    <div id="company__faqs" class="faq__section bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Questions about Indie Lee</h2>
+      {{> faq faqs=cms.companyFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.certificationsFaqs}}
+    <!-- certifications section -->
+    <div id="certifications__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Certifications</h2>
+      {{> faq faqs=cms.certificationsFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.productInformationFaqs}}
+    <!-- product information section -->
+    <div id="productInformation__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Product Information</h2>
+      {{> faq faqs=cms.productInformationFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.ordersFaqs}}
+    <!-- orders information section -->
+    <div id="orders__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Orders</h2>
+      {{> faq faqs=cms.ordersFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.shippingFaqs}}
+    <!-- shipping and handling section -->
+    <div id="shipping__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Shipping and Handling</h2>
+      {{> faq faqs=cms.shippingFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.returnsFaqs}}
+    <!-- returns section -->
+    <div id="returns__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Returns and Exchanges</h2>
+      {{> faq faqs=cms.returnsFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.contactFaqs}}
+    <!-- contact section -->
+    <div id="contact__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Contact Information</h2>
+      {{> faq faqs=cms.contactFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.wholesaleFaqs}}
+    <!-- wholesale  section -->
+    <div id="wholesale__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Wholesale</h2>
+      {{> faq faqs=cms.wholesaleFaqs}}
+    </div>
+    {{/if}}
+    {{#if cms.giftCardsFaqs}}
+    <!-- gift cards section -->
+    <div id="giftCards__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Gift Cards</h2>
+      {{> faq}}
+    </div>
+    {{/if}}
+    {{#if cms.loyaltyProgramFaqs}}
+    <!-- loyalty section -->
+    <div id="loyalty__faqs" class="faq__section mt5 bl b--light-gray">
+      <h2 class="dib w-100 ma0 ph3 pb3 bb b--light-gray">Loyalty Program</h2>
+      {{> faq faqs=cms.loyaltyProgramFaqs}}
+    </div>
+    {{/if}}
+  </div>
+  <div class="cf"></div>
+</div>
+

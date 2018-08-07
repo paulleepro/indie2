@@ -1,0 +1,14 @@
+User-agent: *
+Disallow:
+
+# Javascript, CSS and Images
+
+User-agent: *
+# CSS, JS, Images
+Allow: .js
+Allow: .css
+
+User-agent: Twitterbot
+Allow: *
+
+Sitemap: https://www.indielee.com/sitemap.xml

@@ -1,0 +1,17 @@
+<form id="search__form" class="search__form db pt4 pb3">
+    <fieldset class="relative pa0 ma0 bn">
+        <label class="db white f6 pb3">Find articles, products, events, and ingredients</label>
+        <input id="search__input" class="search__input underline-input f4 input-reset db w-100 pv2 bb b--white bg-navy white outline-0" type="text" placeholder="Search the site">
+        <img class="search__loader absolute right-0 bottom-0 pr1 pb1 mr1 mb1 dn w1" src="/images/search-loader.gif">
+    </fieldset>
+</form>
+<div id="searchResults" class="searchResults" data-component="searchResults">
+    <div id="search__suggestions" class="search__suggestions">
+        <span class="db white ttu f6 pt5 pb3 ttc">Suggested</span>
+        <a class="db pv2 link white f3" href="/shop/ritual/prepare">Prepare</a>
+        <a class="db pv2 link white f3" href="/shop/ritual/perfect">Perfect</a>
+        <a class="db pv2 link white f3" href="/shop/ritual/prevent">Prevent</a>
+        <a class="db pv2 link white f3" href="/shop/ritual/protect">Protect</a>
+    </div>
+    {{> searchResults}}
+</div>

@@ -1,0 +1,7 @@
+.errorPage {
+  min-height: calc(100vh - 472px);
+
+  @include breakpoint(l) {
+    min-height: calc(100vh - 319px);
+  }
+}

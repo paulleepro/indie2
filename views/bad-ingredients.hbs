@@ -1,0 +1,53 @@
+<section class="ingredients__heading w-100 pv3 pv5-l ph3 ph4-l relative">
+  <div class="flex justify-center">
+    <a href="/ingredients" class="bn ba-l b--navy pv3 ph2 ph4-l link flex items-center self-center absolute left-1 left-2-l"><!-- @TODO: add href -->
+      <img src="/images/svg/navy-arrow-left.svg">
+      <p class="navy tc pl3 mv0 f6 fw6"><span class="db dn-l"></span><span class="dn db-l nowrap">Our Ingredients</span></p>
+    </a>
+    <div class="w-70 mw6 tc">
+      <p class="navy mb2 f6 fw6">Ingredients to Avoid</p>
+      <h1 class="ma0 super-clarendon f3 normal">I Don't Think So<span class="dn di-l">:</span></h1>
+      <h2 class="ma0 super-clarendon f3 dn db-l normal">Ingredients We Don't Support</h2>
+    </div>
+  </div>
+  <div class="tc">
+    <p class="dib w-50-l tc lh-copy">The list below represents ingredients that have been questioned over recent years. While these continue to be reviewed by research scientists, the medical community and international governing bodies regarding potential harmful effects, we at Indie Lee believe in taking a more cautious approach. When in doubt, formulate out.</p>
+  </div>
+</section>
+<section class="dirtyIngredients ph3 ph4-l pb3 h-0 flex-l">
+  <div class="dirtyIngredients__col w-100 w-50-l pr2-l">
+  {{#each ingredientsLeft as |ingredient|}}
+    <div class="dirtyIngredient__wrapper ba b--black mb3 pa3 pa4-l border-box">
+      <h2 class="dirtyIngredient__toggle mv0 ttu pointer">{{ingredient.fields.name}}</h2>
+      <h4 class="mb0">{{ingredient.fields.subHeading}}</h4>
+      <p class="dirtyIngredient__synopsis super-clarendon mt2">{{ingredient.fields.synopsis}}</p>
+      <div class="dirtyIngredient__additionalInfo flex">
+        {{{marked ingredient.fields.description}}}
+      </div>
+      <div class="dirtyIngredient__additionalInfo flex">
+        <h4 class="mb0">Other Names</h4>
+        {{{marked ingredient.fields.otherNames}}}
+      </div>
+    </div>
+  {{/each}}
+  </div>
+  <div class="dirtyIngredients__col w-100 w-50-l pl2-l">
+  {{#each ingredientsRight as |ingredient|}}
+    <div class="dirtyIngredient__wrapper ba b--black mb3 pa3 pa4-l border-box">
+      <h2 class="dirtyIngredient__toggle mv0 ttu pointer">{{ingredient.fields.name}}</h2>
+      <h4 class="mb0">{{ingredient.fields.subHeading}}</h4>
+      <p class="dirtyIngredient__synopsis super-clarendon mt2">{{ingredient.fields.synopsis}}</p>
+      <div class="dirtyIngredient__additionalInfo flex">
+        {{{marked ingredient.fields.description}}}
+      </div>
+      {{#if ingredient.fields.otherNames}}
+        <div class="dirtyIngredient__additionalInfo flex">
+          <h4 class="mb0">Other Names</h4>
+          {{{marked ingredient.fields.otherNames}}}
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+  </div>
+  <div class="cf"></div>
+</section>

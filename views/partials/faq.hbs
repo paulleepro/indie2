@@ -1,0 +1,25 @@
+{{#each faqs as |faq|}}
+    <div class="ml4-l ph3 ph0-l {{#unless @last}}bb{{/unless}} b--light-gray pointer">
+        <div class="faq__question pv4">
+            <span class="fw8">{{faq.fields.question}}</span>
+        </div>
+        <div class="faq__answer flex-column flex-row-reverse-l pb4">
+            {{#if faq.fields.media}}
+              <div class="faq__media w-100 w-third-l">
+                {{#ifCond faq.fields.media.fields.file.contentType '==' 'video/mp4' }}
+                  <video class="dn w-100 h-auto" controls>
+                    <source src="{{faq.fields.media.fields.file.url}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                {{/ifCond}}
+                {{#ifCond faq.fields.media.fields.file.contentType '==' 'image/png' }}
+                    <img src="{{faq.fields.media.fields.file.url}}?q=80&w=1200">
+                {{/ifCond}}
+              </div>
+            {{/if}}
+            <div class="faq__answerMarkup w-100 {{#if faq.fields.media}}w-two-thirds-l pr4{{/if}}">
+                {{{marked faq.fields.answer}}}
+            </div>
+        </div>
+    </div>
+{{/each}}

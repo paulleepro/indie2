@@ -1,0 +1,27 @@
+.footer__emailCaptureInput {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  outline: none;
+
+  &::placeholder {
+    color: $light-blue;
+  }
+}
+
+.footer__emailCaptureSubmit {
+  top: 2.5rem;
+  border-bottom: 1px solid $white;
+  background-image: url('/images/svg/arrow-right.svg');
+  background-size: 33%;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.footer__navLinkList {
+  height: 0;
+  transition: height 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  @include breakpoint(l) {
+    height: auto !important;
+  }
+}

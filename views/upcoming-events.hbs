@@ -1,0 +1,42 @@
+<div class="flex flex-column db-l bg-offwhite">
+  <div class="featuredEvents order-1 w-100 ph3 ph6-l bg-white pv4">
+    <div class="fl w-100 w-50-l pr5-l">
+      <span class="dib navy fw7">featured event</span>
+      <h1 class="mb0 super-clarendon f1 fw4">{{cms.featuredEvent.fields.name}}</h1>
+      <img src="{{cms.featuredEvent.fields.image.fields.file.url}}?q=80&w=1200" alt="{{cms.featuredEvent.fields.image.fields.description}}" class="db dn-l w-100 mt3">
+      <p class="lh-copy">{{cms.featuredEvent.fields.description}}</p>
+      <span class="dib w-100 fw8">{{{dateTimeFormat cms.featuredEvent.fields.date}}}</span>
+      <span class="dib w-100 fw8">{{cms.featuredEvent.fields.location}}</span>
+      {{#if cms.featuredEvent.fields.url}}
+        <a href="{{cms.featuredEvent.fields.url}}" class="eventRsvpLink dib w-auto ph4 pv3 mt4 bg-navy link white f5">RESERVE YOUR SPOT</a>
+      {{/if}}
+    </div>
+    <div class="fl w-100 w-50-l">
+      <img src="{{cms.featuredEvent.fields.image.fields.file.url}}?q=90&w=1440" alt="{{cms.featuredEvent.fields.image.fields.description}}" class="dn db-l w-100">
+    </div>
+    <div class="cf"></div>
+  </div>
+  <div class="upcomingEvents__filters fl-l order-0 w-100 w-25-l ph3 pl4-l pv4">
+    <div class="upcomingEvents__filter w-100 pa3 bg-white fw8 ttu outline-0 ba br2 b--light-gray">
+      <label for="upcomingEvents__filterSelect--sort">Sort By: </label>
+      <select id="upcomingEvents__filterSelect--sort" class="upcomingEvents__filterSelect upcomingEvents__filterSelect--sort w-60 fw8 ttu bn outline-0 pointer">
+          <option value="">All</option>
+          <option value="upcoming" {{#ifCond selectedSort '===' 'Upcoming'}}selected{{/ifCond}}>Upcoming</option>
+          <option value="past" {{#ifCond selectedSort '===' 'Past'}}selected{{/ifCond}}>Past</option>
+      </select>
+    </div>
+    <div class="upcomingEvents__filter w-100 pa3 mt3 bg-white fw8 ttu outline-0 ba br2 b--light-gray">
+      <label for="upcomingEvents__filterSelect--series">Series: </label>
+      <select id="upcomingEvents__filterSelect--series" class="upcomingEvents__filterSelect upcomingEvents__filterSelect--series w-70 fw8 ttu bn outline-0 pointer">
+          <option value="">All</option>
+          {{#each eventTags as |tag|}}
+            <option value="{{tag.name}}" {{#ifCond selectedSort '===' '{{tag.name}}'}}selected{{/ifCond}}>{{tag.name}}</option>
+          {{/each}}
+      </select>
+    </div>
+  </div>
+  <div id="upcomingEvents" class="upcomingEvents fl-l order-2 pv4 w-100 w-75-l " data-component="upcomingEvents">
+    {{> upcomingEvents}}
+  </div>
+  <div class="cf"></div>
+</div>

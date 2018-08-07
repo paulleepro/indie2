@@ -1,0 +1,122 @@
+<div class="articles__wrap flex flex-wrap {{#ifCond articles.length '<' 5}}items-start{{/ifCond}}{{#ifCond articles.length '>=' 5}}items-stretch{{/ifCond}} {{#if showFilters}}pt5{{/if}} ph4 ph0-l">
+    {{#if showFilters}}
+        <div class="articles__filtersWrap flex {{#ifCond articles.length '>' 1}}dn-l{{/ifCond}} justify-between w-100 pb4 ph4-l">
+            <div class="articles__resetWrap flex items-center">
+                <span class="articlesAction__reset ml4-l pointer">All Articles</span>
+            </div>
+            <div class="articles__filtersWrap">
+                <div class="articles__filters">
+                    <select class="articles__filtersSelect">
+                        <option>Filter By</option>
+                        <option {{#ifCond selectedCategory '===' 'Feature'}}selected{{/ifCond}}>Feature</option>
+                        <option {{#ifCond selectedCategory '===' 'Ask Indie'}}selected{{/ifCond}}>Ask Indie</option>
+                        <option {{#ifCond selectedCategory '===' 'Industry Gurus'}}selected{{/ifCond}}>Industry Gurus</option>
+                        <option {{#ifCond selectedCategory '===' 'Good Ingredients'}}selected{{/ifCond}}>Good Ingredients</option>
+                        <option {{#ifCond selectedCategory '===' 'How To'}}selected{{/ifCond}}>How To</option>
+                        <option {{#ifCond selectedCategory '===' 'Reference Manual'}}selected{{/ifCond}}>Reference Manual</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    {{#each (slice articles 0 5) as |article|}}
+        {{#if @first}}
+            <div class="articles__col flex items-stretch w-100 w-50-l">
+                <div class="articles__article {{#if ../showFilters}}pt0-l{{else}}pt4-l{{/if}} bb br-l b--light-grey articles__article--first">
+                    <a class="articles__articleInner db w-100 ph4-l link black" href="/beauty-articles/{{article.fields.slug}}">
+                        <div class="articles__articleImage relative aspect-ratio--1x1 cover bg-center dim" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=80&w=600');">
+                            <img class="sr-only" alt="{{article.fields.title}}" src="{{article.fields.media.0.fields.file.url}}?q=10&w=1">
+                        </div>
+                        <div class="articles__copyWrap ph5-l">
+                            <div class="articles__copyInner ph4-l pv4">
+                                <span class="featureArticles__category db black f5 fw5 dim">{{article.fields.category.fields.name}}</span>
+                                <h2 class="articles__title mv3 super-clarendon black f3 dim fw1">{{article.fields.title}}</h2>
+                                <p class="articles__body black dim">{{truncate article.fields.body 150}}</p>
+                                <p class="navy f5 dim">{{dateFormat publishDate}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{else}}
+            {{#ifCond @index '===' 1}}
+                <div class="articles__col flex flex-wrap w-100 w-50-l">
+                    {{#if ../../showFilters}}
+                        <div class="articles__filtersWrap dn flex-l justify-between w-100 pb4 pr4-l">
+                            <div class="articles__resetWrap flex items-center">
+                                <span class="articlesAction__reset ml4-l pointer">All Articles</span>
+                            </div>
+                            <div class="articles__filtersWrap">
+                                <div class="articles__filters">
+                                    <select class="articles__filtersSelect">
+                                        <option>Filter By</option>
+                                        <option {{#ifCond ../../../selectedCategory '===' 'Feature'}}selected{{/ifCond}}>Feature</option>
+                                        <option {{#ifCond ../../../selectedCategory '===' 'Ask Indie'}}selected{{/ifCond}}>Ask Indie</option>
+                                        <option {{#ifCond ../../../selectedCategory '===' 'Industry Gurus'}}selected{{/ifCond}}>Industry Gurus</option>
+                                        <option {{#ifCond ../../../selectedCategory '===' 'Good Ingredients'}}selected{{/ifCond}}>Good Ingredients</option>
+                                        <option {{#ifCond ../../../selectedCategory '===' 'How To'}}selected{{/ifCond}}>How To</option>
+                                        <option {{#ifCond ../../../selectedCategory '===' 'Reference Manual'}}selected{{/ifCond}}>Reference Manual</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+            {{/ifCond}}
+                    <div class="articles__article flex-l items-stretch-l {{#ifCond @index '<' 3}}{{#if ../../showFilters}}pt0-l{{else}}pt4-l{{/if}}{{/ifCond}}{{#ifCond @index '>' 2}}pt4-l{{/ifCond}} w-100 w-50-l {{#ifEven @index}}bl-l{{/ifEven}} b--light-grey">
+                        <a class="articles__articleInner db w-100 pv4 pv0-l ph4-l bb b--light-grey link black" href="/beauty-articles/{{article.fields.slug}}">
+                            <div class="articles__articleImage relative aspect-ratio--1x1 cover bg-center" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=80&w=600');">
+                                <img class="sr-only" alt="{{article.fields.title}}" src="{{article.fields.media.0.fields.file.url}}?q=10&w=1">
+                            </div>
+                            <div class="articles__copyInner pv4">
+                                <span class="featureArticles__category db f5 fw5">{{article.fields.category.fields.name}}</span>
+                                <h2 class="articles__title mt3 mb0 super-clarendon f4 fw1">{{article.fields.title}}</h2>
+                                <p class="navy f5">{{dateFormat publishDate}}</p>
+                            </div>
+                        </a>
+                    </div>
+            {{#if @last}}
+                </div>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+    {{#each (slice articles 5 10) as |article|}}
+        {{#if @last}}
+            <div class="articles__col flex items-stretch w-100 w-50-l">
+                <div class="articles__article bb b--light-grey articles__article--first">
+                    <a class="articles__articleInner db w-100 pv4 ph4-l link" href="/beauty-articles/{{article.fields.slug}}">
+                        <div class="articles__articleImage relative aspect-ratio--1x1 cover bg-center dim" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=80&w=600');">
+                            <img class="sr-only" alt="{{article.fields.title}}" src="{{article.fields.media.0.fields.file.url}}?q=10&w=1">
+                        </div>
+                        <div class="articles__copyWrap ph5-l">
+                            <div class="articles__copyInner ph4-l pv4">
+                                <span class="featureArticles__category db black f5 fw5 dim">{{article.fields.category.fields.name}}</span>
+                                <h2 class="articles__title mv3 super-clarendon black f3 fw1 dim">{{article.fields.title}}</h2>
+                                <p class="articles__body black dim">{{truncate article.fields.body 150}}</p>
+                                <p class="navy f5 dim">{{dateFormat publishDate}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{else}}
+            {{#ifCond @index '===' 0}}
+                <div class="articles__col flex flex-wrap w-100 w-50-l">
+            {{/ifCond}}
+                <div class="articles__article flex-l items-stretch-l pt4-l w-100 w-50-l br-l b--light-grey">
+                    <a class="articles__articleInner db w-100 pv4 pv0-l ph4-l bb b--light-grey link black" href="/beauty-articles/{{article.fields.slug}}">
+                        <div class="articles__articleImage relative aspect-ratio--1x1 cover bg-center" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=80&w=600');">
+                            <img class="sr-only" alt="{{article.fields.title}}" src="{{article.fields.media.0.fields.file.url}}?q=10&w=1">
+                        </div>
+                        <div class="articles__copyInner pv4">
+                            <span class="featureArticles__category db f5 fw5">{{article.fields.category.fields.name}}</span>
+                            <h2 class="articles__title mt3 mb0 super-clarendon f4 fw1">{{article.fields.title}}</h2>
+                            <p class="navy f5">{{dateFormat publishDate}}</p>
+                        </div>
+                    </a>
+                </div>
+            {{#ifCond @index '===' 3}}
+                </div>
+            {{/ifCond}}
+        {{/if}}
+    {{/each}}
+</div>

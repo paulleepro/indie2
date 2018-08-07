@@ -1,0 +1,40 @@
+{{#if noResults}}
+    <span class="db white ttu f6 pt5 pb3 ttc">No Results</span>
+{{else}}
+    {{#if products}}
+        <span class="db white ttu f6 pt5 pb3 ttc">Products</span>
+        {{#each products as |product|}}
+            <a class="searchResults__link db pv2 f3 link white" href="/shop/products/{{product.fields.slug}}">{{product.fields.name}}</a>
+        {{/each}}
+    {{/if}}
+    {{#if rituals}}
+        <span class="db white ttu f6 pt5 pb3 ttc">Rituals</span>
+        {{#each rituals as |ritual|}}
+            <a class="searchResults__link db pv2 f3 link white" href="/shop/products/{{ritual.fields.slug}}">{{ritual.fields.name}}</a>
+        {{/each}}
+    {{/if}}
+    {{#if focus}}
+        <span class="db white ttu f6 pt5 pb3 ttc">Focus</span>
+        {{#each focus as |focus|}}
+            <a class="searchResults__link db pv2 f3 link white" href="/shop/products/{{focus.fields.slug}}">{{focus.fields.name}}</a>
+        {{/each}}
+    {{/if}}
+{{!--     {{#if articles}}
+        <span class="db white ttu f6 pt5 pb3 ttc">Articles</span>
+        {{#each articles as |article|}}
+            <a class="searchResults__link db pv2 f3 link white" href="/beauty-articles/{{articles.fields.slug}}">{{article.fields.title}}</a>
+        {{/each}}
+    {{/if}} --}}
+    {{#if ingredients}}
+        <span class="db white ttu f6 pt5 pb3 ttc">Ingredients</span>
+        {{#each ingredients as |ingredient|}}
+            <a class="searchResults__link db pv2 f3 link white" href="/ingredients/{{ingredient.fields.slug}}">{{ingredient.fields.name}}</a>
+        {{/each}}
+    {{/if}}
+    {{#if events}}
+        <span class="db white ttu f6 pt5 pb3 ttc">Events</span>
+        {{#each events as |event|}}
+            <a class="searchResults__link db pv2 f3 link white" href="/event/{{event.fields.slug}}">{{event.fields.name}}</a>
+        {{/each}}
+    {{/if}}
+{{/if}}

@@ -1,0 +1,7 @@
+<section class="errorPage flex justify-center mb6">
+  <div class="flex-inline flex-column justify-center tc">
+    <h1 class="mt5 mt6-l mb0 navy super-clarendon f-5 f-6-l">{{#if error.status}}{{error.status}}{{else}}Uh oh!{{/if}}</h1>
+    <h2 class="mb5 gray f3 f2-l normal">{{#ifCond error.status '==' 404}}Looks like this page does not exist.{{else}}Looks like something went wrong.{{/ifCond}}</h2>
+    <a class="dib ph3 pv3 white bg-navy f4 b link dim" href="/">Go Back Home</a>
+  </div>
+</section>

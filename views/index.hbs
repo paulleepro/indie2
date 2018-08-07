@@ -1,0 +1,177 @@
+<section class="homeHero">
+    <div class="homeHero__inner cover bg-center ph4 ph5-l" style="background-image: url('{{cms.heroImage.fields.file.url}}?q=80&w=1440');">
+        <div class="homeHero__text w-75 w-third-l pt7 pb7 pb5-l">
+            <h1 class="homeHero__headline ma0 f2 white super-clarendon normal">{{{cms.heroHeadline}}}</h1>
+            <span class="homeHero__shortText db mv4 f4">{{cms.heroShortText}}</span>
+            {{#if cms.heroCta}}
+                <a class="homeHero__cta dib pv3 ph5 trend-sans link ttu f5 black fw6 tracked bg-white" href="{{cms.heroCtaUrl}}">{{cms.heroCta}}</a>
+            {{/if}}
+        </div>
+    </div>
+</section>
+<section class="featureProducts">
+    <div class="featureProducts__inner pl4 pl5-l pt5 pb5">
+        <div class="featureProducts__scroller mb4 mb0-l pb4 hzScroller">
+            <div class="featureProducts__scrollerItem hzScroller__item dn db-l pr5">
+                <div class="featureProducts__scrollerIntroCopy">
+                    <h1 class="featureProducts__scrollerTitle ma0 f3 fw5">{{cms.featureProductsTitle}}</h1>
+                    <span class="featureProducts__scrollerDescription db pt4 pb5 f4">{{cms.featureProductsDescription}}</span>
+                    <a class="featureProducts__cta db pv3 trend-sans link ttu tc f5 fw5 white bg-navy" href="{{cms.featureProductsCtaUrl}}">{{cms.featureProductsCta}}</a>
+                </div>
+            </div>
+            {{#each cms.featureProducts as |product|}}
+                <a class="featureProducts__scrollerItem hzScroller__item relative db link black bg-white" href="/shop/products/{{product.fields.slug}}">
+                    <div class="h-100 pv3" style="background: {{hexToRgba product.fields.focus.0.fields.hexColor product.fields.focus.0.fields.alpha}};">
+                        <img class="featureProducts__productRitualIcon absolute w1 top-1 left-1" src="{{product.fields.ritual.0.fields.icon.fields.file.url}}">
+                        <div class="featureProducts__productImage aspect-ratio--1x1 contain bg-center" style="background-image: url('{{product.fields.images.0.fields.file.url}}?q=80&w=480')"></div>
+                        <h2 class="featureProducts__productName mt3 mb0 ph3 f5 b tc">{{product.fields.name}}</h2>
+                        <div class="featureProducts__productDetails mv2 ph3 f5 tc">
+                            {{#ifCond product.fields.productVariants.length '===' 1}}
+                                <span class="storefront__productVariants">{{product.fields.productVariants.0.fields.variation}}</span>
+                                <span class="featureProducts__productPrice"> | ${{product.fields.price}}.00</span>
+                            {{else}}
+                                <span class="featureProducts__productVariants">{{product.fields.productVariants.length}} Sizes</span>
+                                <span class="featureProducts__productPrice"> | From 
+                                {{#each product.fields.productVariants as |variant|}}
+                                    {{#if @last}}${{variant.fields.price}}.00{{/if}}
+                                {{/each}}
+                                </span>
+                            {{/ifCond}}
+                        </div>
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+        <div class="featureProducts__scrollerIntroCopy dn-l pr4">
+            <h1 class="featureProducts__scrollerTitle ma0 f3 fw5">{{cms.featureProductsTitle}}</h1>
+            <span class="featureProducts__scrollerDescription db pv3 f4">{{cms.featureProductsDescription}}</span>
+            <a class="featureProducts__cta db w-50-m pv3 trend-sans link ttu tc f5 fw5 white bg-navy" href="{{cms.featureProductsCtaUrl}}">{{cms.featureProductsCta}}</a>
+        </div>
+    </div>
+</section>
+<section class="subFeature">
+    <div class="subFeature__inner dn-l pb5 ph4 mw9 center">
+        <div class="subFeature__mediaWrap w-100 w-50-l">
+            <div class="subFeature__media aspect-ratio--4x3 cover bg-right" style="background-image: url('{{cms.subFeatureMedia.fields.file.url}}?q=80&w=1200');"></div>
+        </div>
+        <div class="subFeature__copyWrap w-100 w-70-m w-50-l pt3 center">
+            <span class="subFeature__eyebrow db pb3 tc f5">{{cms.subFeatureEyebrow}}</span>
+            <h1 class="subFeature__title ma0 trend-sans f3 fw4 tc">{{cms.subFeatureTitle}}</h1>
+            <p class="subFeature__description tc">{{cms.subFeatureDescription}}</p>
+            <div class="subFeature__ctaWrap flex justify-center pt3">
+                <a class="subFeature__cta w-100 w-auto-m pv3 ph4 ph5-m trend-sans link ttu f5 fw5 tc white bg-navy" href="{{cms.subFeatureCtaUrl}}">{{cms.subFeatureCta}}</a>
+            </div>
+        </div>
+        <div class="cf"></div>
+    </div>
+    <div class="subFeature__inner-desktop dn db-l mw9 center">
+        <div class="subFeature__media relative w-100 aspect-ratio--16x9 cover bg-right" style="background-image: url('{{cms.subFeatureMedia.fields.file.url}}?q=80&w=1200');">
+            <div class="subFeature__copyWrap absolute w-50 v-center pa4">
+                <span class="subFeature__eyebrow db pb3 tc f5">{{cms.subFeatureEyebrow}}</span>
+                <h1 class="subFeature__title ma0 trend-sans fw4 tc">{{cms.subFeatureTitle}}</h1>
+                <p class="subFeature__description tc">{{cms.subFeatureDescription}}</p>
+                <div class="subFeature__ctaWrap flex justify-center pt4">
+                    <a class="subFeature__cta pv3 ph5 trend-sans link ttu f5 fw5 tc white bg-navy" href="{{cms.subFeatureCtaUrl}}">{{cms.subFeatureCta}}</a>
+                </div>
+            </div>
+            <div class="cf"></div>
+        </div>
+    </div>
+</section>
+{{!-- <section class="featuredArticles bg-blueoffwhite bg-offwhite-l">
+    <div class="featuredArticles__inner flex flex-wrap pv5 ph4 mw9 center">
+        {{#each cms.featuredArticles as |article|}}
+            {{#if @first}}
+                <div class="featuredArticles__col w-100 w-50-l">
+                    <div class="featuredArticles__article featuredArticles__article--first">
+                        <div class="featuredArticles__articleInner">
+                            <div class="featuredArticles__articleImage aspect-ratio--1x1 cover bg-center" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=90&w=1440');"></div>
+                            <div class="featuredArticles__copyWrap ph5-l">
+                                <div class="featuredArticles__copyInner ph4-l pv4">
+                                    <span class="featureArticles__category db navy f5">{{article.fields.category.fields.name}}</span>
+                                    <h2 class="featuredArticles__title mv3 super-clarendon f3">{{article.fields.title}}</h2>
+                                    <p class="featuredArticles__body">{{truncate article.fields.body 150}}</p>
+                                    <a class="featuredArticles__readmore link f6 ttu black b" href="/beauty-articles/{{article.fields.slug}}">READ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                {{#ifCond @index '===' 1}}
+                    <div class="featuredArticles__col flex flex-wrap w-100 w-50-l pl4-l">
+                {{/ifCond}}
+                        <div class="featuredArticles__article w-100 w-50-l ph4-l bl-l b--light-grey">
+                            <a class="featuredArticles__articleInner db pv4 pv0-l mb4 {{#ifCond @index '<' 3}}bb{{else}}bb bn-l mb0-l{{/ifCond}} b--light-grey link black" href="/beauty-articles/{{article.fields.slug}}">
+                                <div class="featuredArticles__articleImage aspect-ratio--1x1 cover bg-center" style="background-image: url('{{article.fields.media.0.fields.file.url}}?q=90&w=1440');"></div>
+                                <div class="featuredArticles__copyInner pv4">
+                                    <span class="featureArticles__category db navy f5">{{article.fields.category.fields.name}}</span>
+                                    <h2 class="featuredArticles__title mt2 mb0 super-clarendon f3 normal">{{article.fields.title}}</h2>
+                                </div>
+                            </a>
+                        </div>
+                {{#if @last}}
+                    </div>
+                {{/if}}
+            {{/if}}
+        {{/each}}
+        <div class="featuredArticles__ctaWrap w-100 flex justify-center pt4">
+            <a class="featuredArticles__cta pv3 ph5 link ttu f5 fw5 tc white bg-navy" href="/beauty-articles">{{cms.featuredArticlesCta}}</a>
+        </div>
+    </div>
+</section> --}}
+{{#if cms.featuredEvents}}
+<section class="featuredEvents">
+    <div class="featuredEvents__inner pv2 ph4">
+        <div class="featuredEvents__introMobile db dn-l mw5 mb5">
+            <h1 class="featuredEvents__title">{{cms.featuredEventsTitle}}</h1>
+            <p class="featuredEvents__description">{{cms.featuredEventsDescription}}</p>
+        </div>
+        <div class="featuredEvents__scroller pb5 hzScroller">
+            {{#each cms.featuredEvents as |event|}}
+                <a class="featuredEvents__scrollerItem flex items-stretch hzScroller__item relative w-third w-20-l pa2 link black" href="/shop/events/{{event.sys.id}}">
+                    <div class="featuredEvents__scrollerItemInner bg-white">
+                        <div class="featuredEvents__eventImage aspect-ratio--4x3 cover bg-center" style="background-image: url('{{event.fields.image.fields.file.url}}?q=80&w=480')"></div>
+                        <h2 class="featuredEvents__eventName mt3 mb0 ph2 f6 f5-l tc normal lh-copy">{{event.fields.name}}</h2>
+                        <div class="featuredEvents__eventDetails mv2 ph2 f6 f4-l tc">
+
+                        </div>
+                    </div>
+                </a>
+            {{/each}}
+            <div class="featuredEvents__scrollerItem hzScroller__item w-20-l">
+                <div class="featuredEvents__scrollerIntroCopy dn db-l pl4">
+                    <h1 class="featuredEvents__scrollerTitle ma0 ttu f3">{{cms.featuredEventsTitle}}</h1>
+                    <span class="featuredEvents__scrollerDescription db pt4 pb4 f4">{{cms.featuredEventsDescription}}</span>
+                    <a class="featuredEvents__cta db pv3 link ttu tc f5 fw5 white bg-navy" href="{{cms.featuredEventsCtaUrl}}">{{cms.featuredEventsCta}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}
+{{#if cms.joinTribeSocialImages}}
+<section class="joinTribe bg-blueoffwhite">
+    <div class="joinTribe__inner pl4 pl5-l pt5 pb5 pb6-l">
+        <div class="dn-l mb3 pr4">
+            <div class="joinTribe__scrollerIntroCopy db">
+                <h1 class="joinTribe__scrollerTitle--mobile ma0 fw5">{{cms.joinTribeTitle}}</h1>
+                <span class="joinTribe__scrollerDescription--mobile db pv4 f3">{{{marked cms.joinTribeDescription}}}</span>
+            </div>
+        </div>
+        <div class="joinTribe__scroller pb4 hzScroller">
+            <div class="joinTribe__scrollerItem hzScroller__item dn db-l w-20 pt4 pr5">
+                <div class="joinTribe__scrollerIntroCopy db">
+                    <h1 class="joinTribe__scrollerTitle ma0 f3 fw5">{{cms.joinTribeTitle}}</h1>
+                    <span class="joinTribe__scrollerDescription db pv4 f4">{{{marked cms.joinTribeDescription}}}</span>
+                </div>
+            </div>
+            {{#each cms.joinTribeSocialImages as |image|}}
+                <div class="joinTribe__scrollerItem hzScroller__item relative w-third w-20-l mr4 pv4 link black">
+                    <div class="joinTribe__socialImage aspect-ratio--1x1 contain bg-center" style="background-image: url('{{image.fields.file.url}}?q=80&w=480')"></div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/if}}

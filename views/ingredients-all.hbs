@@ -1,0 +1,26 @@
+<section class="ingredients__heading flex justify-between w-100 pv3 pv5-l ph3 ph4-l">
+  <a href="/ingredients/beauty-history" class="bn ba-l b--navy pv3 ph2 ph4-l link flex items-center self-center self-end-l">
+    <img src="/images/svg/navy-arrow-left.svg">
+    <p class="navy tc pl3 mv0 f6 fw6"><span class="db dn-l"></span><span class="dn db-l nowrap">Beauty History</span></p>
+  </a>
+  <div class="mw6 tc">
+    <p class="navy mb2 f6 fw6">Our Ingredients</p>
+    <h1 class="ma0 super-clarendon f3 normal">{{title}}</h1>
+  </div>
+  <a href="/bad-ingredients" class="flex items-center flex-row-reverse self-center self-end-l bn ba-l b--navy pv3 ph2 ph4-l link">
+    <img src="/images/svg/navy-arrow-right.svg">
+    <p class="navy tc pr3 mv0 f6 fw6"><span class="db dn-l"></span><span class="dn db-l nowrap">Bad Ingredients</span></p>
+  </a>
+</section>
+<section class="ingredients__tiles flex flex-wrap justify-start w-100 ph2 pb4">
+  {{#each ingredients as |ingredient|}}
+    <a href="/ingredients/{{ingredient.fields.slug}}" class="ingredient__link dib w-50 w-20-l pa2 border-box link">
+      <div class="ingredient__tile relative w-100 aspect-ratio--1x1 bg-center cover" style="background-image: url('{{ingredient.fields.image.fields.file.url}}?fm=jpg&q=80&w=600')">
+        <div class="ingredient__tileText absolute bottom-0 w-75 h-center tc">
+          <span class="dib bg-white-70 black w-auto tl pv3 ph4 f4 fw1 tc">{{ingredient.fields.name}}</span>
+        </div>
+        <div class="ingredient__tileOverlay absolute top-0 left-0 w-100 h-100"></div>
+      </div>
+    </a>
+  {{/each}}
+</section>

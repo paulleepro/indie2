@@ -1,0 +1,87 @@
+@keyframes toggleDisplay{
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.storeLocator__mobileToggle {
+  background: $light-grey;
+  color: $black;
+
+  &.storeLocator__mobileToggle--active {
+    background: $navy;
+    color: $white;
+  }
+}
+
+.storeLocator__locationsWrapper {
+  height: calc(100vh - 203.75px);
+  display: none;
+  animation: toggleDisplay 500ms;
+  
+  @include breakpoint(l) {
+    display: block;
+  } 
+
+  &.storeLocator__locationsWrapper--active-mobile {
+    display: block;
+  }  
+}
+
+.storeLocator__map {
+  display: none;
+  animation: toggleDisplay 500ms;
+  
+  @include breakpoint(l) {
+    display: block;
+  } 
+
+  &.storeLocator__map--active-mobile {
+    display: block;
+  }  
+}
+
+.storeLocator__marker {
+  z-index: 90;
+  width: 2rem;
+  height: 2.5rem;
+  line-height: 2rem;
+  text-align: center;
+  background-image: url("/images/svg/map-marker.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  span {
+    color: white;
+    font-weight: bold;
+  }
+
+  &.active {
+    z-index: 99;
+    background-image: url("/images/svg/map-marker-active.svg");
+
+  }
+}
+
+.locationsList__inner {
+  height: calc(100% - 45px);
+
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+    -webkit-appearance: none;
+    background-color: $white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $navy;
+  }
+}
+
+.locationsScrollerItem {
+  box-shadow: 0 5px 12px #cacaca;
+}

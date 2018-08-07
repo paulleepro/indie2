@@ -1,0 +1,17 @@
+// Hide cart toggle only on checkout
+#checkout-route #header #header__cartDrawerToggle {
+  display: none;
+}
+
+.checkout {
+  min-height: 68vh;
+}
+
+.checkout--invalid {
+  opacity: .2;
+  cursor: not-allowed !important;
+
+  input, button, label {
+    cursor: not-allowed !important;
+  }
+}

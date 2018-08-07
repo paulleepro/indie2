@@ -1,0 +1,39 @@
+{
+  "name": "indie_lee",
+  "description": "create app.json file for review apps",
+  "scripts": {
+  },
+  "env": {
+    "CONTENTFUL_API_KEY": {
+      "required": true
+    },
+    "CONTENTFUL_SPACE_ID": {
+      "required": true
+    },
+    "MAGENTO_ACCESS_TOKEN": {
+      "required": true
+    },
+    "MAGENTO_URL": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "AIRTABLE_API_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.generalContent {
+  @include breakpoint(l) {
+    min-height: calc(100vh - 431px);
+  }
+}
+
+.generalContent__body {
+  a {
+  	color: $navy;
+  	font-weight: bold;
+  	transition: opacity .15s linear;
+
+  	&:hover {
+  	  opacity: .5;
+  	}
+  }
+}

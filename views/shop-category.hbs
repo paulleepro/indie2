@@ -1,0 +1,81 @@
+{{#if ritual}}
+<section class="storefront__ritual relative pl3 pl5-l mt5 pb5">
+    <div class="storefront__mobileIntroCopy relative db dn-l w-60">
+        <h1 class="storefront__mobileTitle mv1 f3">{{ritual.name}}</h1>
+        <img class="pt3 w-40" src="{{ritual.detailedIcon.fields.file.url}}?q=90&w=1440">
+        <span class="storefront__mobileDescription db pt3 pb5 f4">{{ritual.description}}</span>
+    </div>
+    <div class="storefront__scroller hzScroller relative pb5">
+        <div class="storefront__scrollerItem hzScroller__item dn db-l pr5">
+            <div class="storefront__scrollerIntroCopy">
+                <h1 class="storefront__scrollerTitle mv1 ttu f3">{{ritual.name}}</h1>
+                <img class="pt3 w-40" src="{{ritual.detailedIcon.fields.file.url}}?q=90&w=1440">
+                <span class="storefront__scrollerDescription db pt4 pb5 f4">{{ritual.description}}</span>
+            </div>
+        </div>
+        {{#each ritual.products as |product|}}
+            <a class="storefront__scrollerItem storefront__scrollerItem--item hzScroller__item relative pv4 link black" style="background: {{hexToRgba product.focus.0.fields.hexColor product.focus.0.fields.alpha}};" href="/shop/products/{{product.slug}}">
+                <img class="storefront__productRitualIcon absolute w1 top-1 left-1" src="{{product.ritual.0.fields.icon.fields.file.url}}?q=90&w=1440">
+                <div class="storefront__productImage aspect-ratio--1x1 contain bg-center" style="background-image: url('{{product.images.0.fields.file.url}}?q=80&w=1200')"></div>
+                <h2 class="storefront__productName mt3 mb0 ph3 f5 b tc">{{product.name}}</h2>
+                <div class="storefront__productDetails mv2 ph3 f5 tc">
+                    {{#ifCond product.productVariants.length '===' 1}}
+                        <span class="storefront__productVariants">{{product.productVariants.0.fields.variation}}</span>
+                        <span class="storefront__productPrice"> | ${{product.price}}.00</span>        
+                    {{else}}
+                        <span class="storefront__productVariants">{{product.productVariants.length}} Sizes</span>
+                        <span class="storefront__productPrice"> | From 
+                            {{#each product.productVariants as |variant|}}
+                                {{#if @last}}
+                                    {{moneyFormat variant.fields.price}}
+                                {{/if}}
+                            {{/each}}
+                        </span>
+                    {{/ifCond}}
+                </div>
+            </a>
+        {{/each}}
+    </div>
+</section>
+{{/if}}
+{{#if focus}}
+<section class="storefront__focus relative pl3 pl5-l mt5 pb5">
+        <div class="storefront__mobileIntroCopy relative db dn-l w-60">
+            <h1 class="storefront__mobileTitle mv1 f3">{{focus.name}}</h1>
+            <div class="storefront__focusBar mt3" style="background-color: {{focus.hexColor}};"></div>
+            <span class="storefront__mobileDescription db pt3 pb5 f4">{{focus.description}}</span>
+        </div>
+        <div class="storefront__scroller hzScroller relative pb5">
+            <div class="storefront__scrollerItem hzScroller__item pr5">
+                <div class="storefront__scrollerIntroCopy dn db-l">
+                    <h1 class="storefront__scrollerTitle mv1 f3">{{focus.name}}</h1>
+                    <div class="storefront__focusBar w4 h2 mt3" style="background-color: {{focus.hexColor}};"></div>
+                    <span class="storefront__scrollerDescription db pt3 pb5 f4">{{focus.description}}</span>
+                </div>
+            </div>
+            {{#each focus.products as |product|}}
+                <a class="storefront__scrollerItem storefront__scrollerItem--item hzScroller__item relative pv4 link black" style="background: {{hexToRgba product.focus.0.fields.hexColor product.focus.0.fields.alpha}};" href="/shop/products/{{product.slug}}">
+                    <img class="storefront__productRitualIcon absolute w1 top-1 left-1" src="{{product.ritual.0.fields.icon.fields.file.url}}">
+                    <div class="storefront__productImage aspect-ratio--1x1 contain bg-center" style="background-image: url('{{product.images.0.fields.file.url}}?q=80&w=1200')"></div>
+                    <h2 class="storefront__productName mt3 mb0 ph3 f5 b tc">{{product.name}}</h2>
+                    <div class="storefront__productDetails mv2 ph3 f5 tc">
+                        {{#ifCond product.productVariants.length '===' 1}}
+                            <span class="storefront__productVariants">{{product.productVariants.0.fields.variation}}</span>
+                            <span class="storefront__productPrice"> | ${{product.price}}.00</span>
+                        {{else}}
+                            <span class="storefront__productVariants">{{product.productVariants.length}} Sizes</span>
+                            <span class="storefront__productPrice"> | From 
+                                {{#each product.productVariants as |variant|}}
+                                    {{#if @last}}
+                                        {{moneyFormat variant.fields.price}}
+                                    {{/if}}
+                                {{/each}}
+                            </span>
+                        {{/ifCond}}
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+    </section>
+{{/if}}
+

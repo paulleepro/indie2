@@ -1,0 +1,59 @@
+<article class="article mw-8 center" data-component="article">
+    <div class="article__header ph3 ph4-l pt5 pb4">
+        <span class="db ttu tc fw6 tracked">{{article.category.fields.name}}</span>
+        <h1 class="super-clarendon f2 tc">{{article.title}}</h1>
+        <h2 class="super-clarendon f4 tc fw1">{{article.subTitle}}</h2>
+    </div>
+    <div class="article__body flex items-stretch bb b--light-grey">
+        <div class="article__imagesCol dn db-l w-50-l pr4-l pl4-l pb4">
+            <div class="article__imagesInner">
+                {{#each article.media as |media|}}
+                    {{#ifCond media.fields.file.contentType '===' 'video/mp4'}}
+                        {{!-- TODO add video player here --}}
+                    {{else}}
+                        <img class="article__image db w-100 pb4" src="{{media.fields.file.url}}?q=80&w=1200">
+                    {{/ifCond}}
+                {{/each}}
+            </div>
+        </div>
+        <div class="article__textCol w-100 w-40-l pb4 ph4 bl-l br-l b--light-grey">
+            <div class="article__textInner f5 f4-l lh-copy">
+                {{{marked article.body}}}
+            </div>
+        </div>
+        <aside class="article__aside dn db-l w-10-l ph4-l">
+            <div class="article__asideInner">
+                <span class="article__asideCategory db mv2 f6">{{article.category.fields.name}}</span>
+                <span class="article__asidePublishDate db mt2 mb4 pb4 f6 bb b--light-grey">{{dateFormat article.publishDate}}</span>
+                {{#if @article.author}}<span class="article__asideAuthor db mv2 f6">Words:<br>{{article.author}}</span>{{/if}}
+                {{#if @article.photographyCredit}}<span class="article__asidePhotoCredit db mt3 mb7 f6">Photography:<br>{{article.photographyCredit}}</span>{{/if}}
+                {{#if article.pullQuote}}
+                    <blockquote class="article__pullQuote ma0 pb4 f6 b bb b--light-grey">
+                        "{{article.pullQuote}}"
+                    </blockquote>
+                {{/if}}
+            </div>
+        </aside>
+    </div>
+</article>
+{{#if additionalArticles.length}}
+    <div class="keepReading w-100 center">
+        <h3 class="ttu tc fw6 tracked pv4">KEEP READING</h3>
+        <div class="keepReading__Articles flex flex-column flex-row-l">
+            {{#each additionalArticles as |article|}}
+                <a href="/beauty-articles/{{article.slug}}" class="w-100 w-25-l link black">
+                    <div class="flex flex-row flex-column-l items-center w-100 mb4 pv3 ph3 ph4-l bg-offwhite bg-white-l {{#unless @last}}br{{/unless}} b--light-gray">
+                        <div class="article__articleImage w-40 w-100-l order-1 order-0-l relative aspect-ratio--7x5-l cover bg-center" style="background-image: url('{{article.media.0.fields.file.url}}?q=80&w=1200');">
+                            <img class="sr-only" alt="{{article.title}}" src="{{article.media.0.fields.file.url}}?q=10&w=1">
+                        </div>
+                        <div class="article__copyInner w-60 w-100-l order-0 order-1-l pv4 pr3 pr0-l">
+                            <span class="featureArticles__category db f5 fw5">{{article.category.fields.name}}</span>
+                            <h2 class="articles__title mt3 mb0 super-clarendon f5 f4-l">{{article.title}}</h2>
+                            <p class="dn dib-ns pt2 navy f5 b">{{dateFormat article.publishDate}}</p>
+                        </div>
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

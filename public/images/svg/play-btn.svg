@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="54px" viewBox="0 0 49 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M29.9922118,19.2147086 L3.07632399,34.9156432 C1.95482866,36.0371385 0.833333333,34.9156432 0.833333333,33.7941478 L0.833333333,2.39227867 C0.833333333,1.27078334 1.95482866,0.149288015 3.07632399,1.27078334 L29.9922118,16.9717179 C31.1137072,16.9717179 31.1137072,19.2147086 29.9922118,19.2147086 Z" id="path-1"></path>
+        <filter x="-53.3%" y="-40.5%" width="206.7%" height="192.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04_01_Philosophy" transform="translate(-897.000000, -242.000000)">
+            <g id="Our-Founder" transform="translate(781.000000, 102.000000)">
+                <g id="Feature-article" transform="translate(0.000000, 29.000000)">
+                    <g id="Play" transform="translate(125.000000, 118.000000)">
+                        <g id="Fill-1">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
